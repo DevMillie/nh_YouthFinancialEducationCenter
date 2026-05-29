@@ -1,0 +1,2104 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   Layout — 사용자 공통 레이아웃·컴포넌트·페이지
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Page Layout
+   -------------------------------------------------------------------------- */
+.wrap {
+  min-height: calc(100vh - 540px);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  background-color: var(--color-white);
+}
+
+.main__inner {
+  padding: 40px 40px 80px;
+  max-width: calc(var(--content-max-width) + 80px);
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 200;
+  height: var(--header-height);
+  background-color: var(--color-white);
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.header.is-scrolled {
+  box-shadow: 6px -4px 11px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  padding-top: var(--header-height);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.logo img {
+  width: 381px;
+  height: 28px;
+}
+
+.logo a:hover {
+  color: var(--color-primary);
+}
+
+.gnb {
+  overflow: visible;
+}
+
+.gnb__list {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.gnb__item {
+  position: relative;
+}
+
+.gnb__link {
+  display: block;
+  padding: 22px 0px;
+  font-size: 26px;
+  color: var(--color-text);
+  white-space: nowrap;
+  transition: color 0.15s;
+  font-weight: 800;
+}
+
+.gnb__item:hover .gnb__link,
+.gnb__item:focus-within .gnb__link,
+.gnb__item.is-hover .gnb__link {
+  color: var(--color-accent);
+}
+
+
+/* GNB 드롭다운 */
+.gnb__dropdown {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 10px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 300;
+}
+
+.gnb__item:hover .gnb__dropdown,
+.gnb__item:focus-within .gnb__dropdown,
+.gnb__item.is-hover .gnb__dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.gnb__dropdown-inner {
+  position: relative;
+  padding: 10px 16px ;
+  background-color: var(--color-primary);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.gnb__dropdown-inner::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--color-primary);
+}
+
+.gnb__sub a {
+  display: block;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--color-white);
+  text-align: center;
+  white-space: nowrap;
+  transition: color 0.15s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.gnb__sub li:last-child a {
+  border-bottom: none;
+}
+
+.gnb__sub a:hover,
+.gnb__sub li.is-active a {
+  color: var(--color-accent);
+}
+
+.header__menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.header__menu-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.header__menu-icon--close {
+  display: none;
+}
+
+body.is-gnb-open .header__menu-icon--open {
+  display: none;
+}
+
+body.is-gnb-open .header__menu-icon--close {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Breadcrumb
+   -------------------------------------------------------------------------- */
+.breadcrumb {
+  height: 50px;
+  background-color: #ee6d82;
+  border-bottom: none;
+  flex-shrink: 0;
+}
+
+.breadcrumb__inner {
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb__nav {
+  flex: 1;
+  min-width: 0;
+}
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.breadcrumb__item + .breadcrumb__item::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  background: url("../images/common/breadcrumb_arrow.svg") center / contain no-repeat;
+  vertical-align: middle;
+}
+
+.breadcrumb__item {
+  color: #ffdada;
+}
+
+.breadcrumb__home {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.breadcrumb__home:hover {
+  color: #ffffff;
+}
+
+.breadcrumb__item.is-current {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar
+   -------------------------------------------------------------------------- */
+.wrap .sidebar {
+  width: 195px;
+  flex-shrink: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.wrap .sidebar__title {
+  margin-bottom: 0;
+  padding: 0 0 20px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #5a371e;
+}
+
+.wrap .sidebar__item {
+  border-left: 3px solid #eaeaea;
+}
+
+.wrap .sidebar__item a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #5a371e;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.wrap .sidebar__item a.long_word {
+  word-spacing: -7%;
+  padding-right: 0;
+}
+
+.wrap .sidebar__item a:hover {
+  color: #ee6d82;
+}
+
+.wrap .sidebar__item.is-active {
+  border-left-color: #ee6d82;
+}
+
+.wrap .sidebar__item.is-active a {
+  color: #ee6d82;
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   Page — US030201 교육 신청 지역 선택
+   -------------------------------------------------------------------------- */
+.user-apply-page .body {
+  max-width: 1400px;
+  padding: 63px 0 80px;
+  gap: 5px;
+}
+
+.user-apply-page .main {
+  background-color: transparent;
+}
+
+.user-apply-page .main__inner {
+  padding: 0;
+  max-width: none;
+}
+
+.sub-page-head__title {
+  font-size: 28px;
+  font-weight: 700;  
+  color: #373737;
+  line-height: normal;
+}
+
+.sub-page-head__desc {
+  margin-top: 18px;
+  color: #373737;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.region-select__grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(158px, 1fr));
+  gap: 15px 16px;
+  max-width: 1150px;
+}
+
+.region-select__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 15px 24px;
+  border-radius: 999px;
+  background-color: #5a371e;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.region-select__btn:hover,
+.region-select__btn:focus-visible {
+  background-color: #ff8296;
+}
+
+/* --------------------------------------------------------------------------
+   Page — US030301 지역 센터 교육 리스트
+   -------------------------------------------------------------------------- */
+/* 페이지 타이틀 + 오시는길 버튼 행 */
+.edu-detail-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edu-place-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 15px 4px 10px;
+  border-radius: 30px;
+  background-color: #5a371e;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.edu-place-btn:hover {
+  background-color: #6f4527;
+}
+
+.edu-place-btn svg,
+.edu-place-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* 개인교육 / 단체교육 탭 */
+.edu-tabs {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.edu-tabs__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 5px;
+  border: 1px solid #d0d0d0;
+  border-radius: 18px;
+}
+
+.edu-tab {
+  padding: 15px 60px;
+  border-radius: 16px;
+  background-color: #fff;
+  color: #8d8d8d;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.edu-tab.is-active {
+  background-color: #ff8296;
+  color: #fff;
+}
+
+/* 필터 영역 */
+.edu-filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.edu-select {
+  position: relative;
+  min-width: 230px;
+}
+
+.edu-select select {
+  width: 100%;
+  padding: 15px 40px 15px 15px;
+  border: 1px solid rgba(202, 202, 202, 0.87);
+  border-radius: 10px;
+  background-color: #fff;
+  color: #373737;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  appearance: none;
+  cursor: pointer;
+}
+
+.edu-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%);
+  background: url("../images/common/arrow_down_gray.svg") center / contain no-repeat;
+  pointer-events: none;
+}
+
+/* 교육 리스트 */
+.edu-panel[hidden] {
+  display: none;
+}
+
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* 교육 카드 */
+.edu-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  min-height: 186px;
+  padding: 30px 45px;
+  border: 5px solid var(--edu-border, #dedede);
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.edu-card__head {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  align-self: stretch;
+  justify-content: center;
+}
+
+.edu-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 8px 15px;
+  border-radius: 30px;
+  background-color: var(--edu-main, #aaa);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+}
+
+.edu-card__title {
+  width: 100%;
+  color: #5a371e;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+}
+
+.edu-card__info {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edu-card__meta {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 10px 0;
+}
+
+.edu-card__meta-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  color: #5a371e;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.edu-card__meta-label svg,
+.edu-card__meta-label img {
+  width: 18px;
+  height: 18px;
+}
+
+.edu-card__meta-value {
+  color: #5a371e;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.edu-card__btn {
+  flex-shrink: 0;
+  min-width: 99px;
+  padding: 10px 20px;
+  border: 1px solid #727272;
+  border-radius: 30px;
+  background-color: #fff;
+  color: #727272;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.edu-card__btn:hover {
+  background-color: #727272;
+  color: #fff;
+}
+
+/* 대기신청 상태 */
+.edu-card__btn--wait {
+  border-color: #ff8296;
+  color: #ff8296;
+}
+
+.edu-card__btn--wait:hover {
+  background-color: #ff8296;
+  color: #fff;
+}
+
+/* 마감 상태 */
+.edu-card.is-closed {
+  overflow: hidden;
+}
+
+.edu-card.is-closed::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.46);
+  border-radius: 25px;
+  pointer-events: none;
+}
+
+.edu-card.is-closed .edu-card__btn {
+  position: relative;
+  z-index: 1;
+  cursor: default;
+}
+
+.edu-card.is-closed .edu-card__btn:hover {
+  background-color: #fff;
+  color: #727272;
+}
+
+/* 주 컬러별 케이스 클래스 — 공통 팔레트(base.css) 참조 */
+.edu-card--green   { --edu-main: var(--edu-green-badge);   --edu-border: var(--edu-green-border); }
+.edu-card--teal    { --edu-main: var(--edu-teal-badge);    --edu-border: var(--edu-teal-border); }
+.edu-card--blue    { --edu-main: var(--edu-blue-badge);    --edu-border: var(--edu-blue-border); }
+.edu-card--yellow  { --edu-main: var(--edu-yellow-badge);  --edu-border: var(--edu-yellow-border); }
+.edu-card--orange  { --edu-main: var(--edu-orange-badge);  --edu-border: var(--edu-orange-border); }
+.edu-card--gray    { --edu-main: var(--edu-gray-badge);    --edu-border: var(--edu-gray-border); }
+.edu-card--purple  { --edu-main: var(--edu-purple-badge);  --edu-border: var(--edu-purple-border); }
+.edu-card--pink    { --edu-main: var(--edu-pink-badge);    --edu-border: var(--edu-pink-border); }
+.edu-card--red     { --edu-main: var(--edu-red-badge);     --edu-border: var(--edu-red-border); }
+.edu-card--navy    { --edu-main: var(--edu-navy-badge);    --edu-border: var(--edu-navy-border); }
+.edu-card--skyblue { --edu-main: var(--edu-skyblue-badge); --edu-border: var(--edu-skyblue-border); }
+.edu-card--lime    { --edu-main: var(--edu-lime-badge);    --edu-border: var(--edu-lime-border); }
+.edu-card--brown   { --edu-main: var(--edu-brown-badge);   --edu-border: var(--edu-brown-border); }
+.edu-card--coral   { --edu-main: var(--edu-coral-badge);   --edu-border: var(--edu-coral-border); }
+.edu-card--olive   { --edu-main: var(--edu-olive-badge);   --edu-border: var(--edu-olive-border); }
+
+/* --------------------------------------------------------------------------
+   지점안내 팝업 (공통) — 오시는길 / 지역 센터 공통 모달
+   -------------------------------------------------------------------------- */
+.branch-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+}
+
+.branch-modal.is-open {
+  display: block;
+}
+
+.branch-modal__dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+}
+
+.branch-modal__panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 1000px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
+  padding-bottom: 30px;
+  background: #fff;
+  border-radius: 30px;
+  overflow-y: auto;
+}
+
+.branch-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+.branch-modal__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #373737;
+}
+
+.branch-modal__close {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.branch-modal__close img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.branch-modal__map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  margin: 0 30px;
+  background: #eee;
+  overflow: hidden;
+}
+
+.branch-modal__map-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
+
+.branch-modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.branch-modal__region {
+  padding: 0 30px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: #373737;
+}
+
+.branch-modal__card-wrap {
+  padding: 0 30px;
+}
+
+.branch-modal__card {
+  padding: 25px;
+  border: 1px solid rgba(221, 221, 221, 0.87);
+  border-radius: 20px;
+}
+
+.branch-info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.branch-info__item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.branch-info__label {
+  color: #888;
+  line-height: 20px;
+}
+
+.branch-info__value {
+  color: #373737;
+  line-height: 20px;
+}
+
+.branch-info__facilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 5px;
+}
+
+.branch-facility {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.branch-facility img {
+  width: 30px;
+  height: 30px;
+}
+
+.branch-facility span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #373737;
+}
+
+body.is-modal-open {
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   오시는길 리스트 (US020401) — 전국 센터 카드
+   -------------------------------------------------------------------------- */
+.visit-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+  margin-top: 58px;
+  padding: 0;
+  list-style: none;
+}
+
+.visit-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 195px;
+  padding: 35px;
+  background: #fff;
+  border: 1px solid rgba(221, 221, 221, 0.87);
+  border-radius: 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.visit-card:hover,
+.visit-card:focus-visible {
+  border-color: #ee6d82;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  outline: none;
+}
+
+.visit-card__name {
+  flex-shrink: 0;
+  width: 160px;
+  padding: 0 30px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.96px;
+  color: #373737;
+  text-align: center;
+}
+
+.visit-card__body {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  padding: 0 30px;
+}
+
+.visit-card__addr {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+  color: #888;
+}
+
+.visit-card__addr-text {
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.visit-card__tel {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #888;
+}
+
+.visit-card__icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.visit-card__icons img {
+  width: 30px;
+  height: 30px;
+}
+
+.visit-card__untact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 72px;
+}
+
+.visit-card__untact img {
+  width: 25px;
+  height: 25px;
+}
+
+.visit-card__untact-text {
+  font-size: 15px;
+  font-weight: 800;
+  color: #2859c5;
+}
+
+/* --------------------------------------------------------------------------
+   Button
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btn--sm {
+  min-width: 72px;
+  height: 32px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+.btn--lg {
+  min-width: 120px;
+  height: 44px;
+  padding: 0 32px;
+  font-size: 15px;
+  border-radius: 22px;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 1px solid var(--color-primary);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.btn--outline {
+  background-color: var(--color-white);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-text-muted);
+}
+
+.btn--gray {
+  background-color: #888;
+  color: var(--color-white);
+  border: 1px solid #888;
+}
+
+.btn--gray:hover {
+  background-color: #777;
+  border-color: #777;
+}
+
+.btn-order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  background-color: var(--color-white);
+  color: var(--color-text-muted);
+}
+
+.btn-order:hover {
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+}
+
+.btn-order:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Form
+   -------------------------------------------------------------------------- */
+.form-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.form-check input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  background-color: var(--color-white);
+  cursor: pointer;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.form-check input[type="checkbox"]:checked {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2 6L5 9L10 3' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px 12px;
+}
+
+.form-check input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.input-text {
+  width: 100%;
+  padding: 15px;
+  padding-right: 56px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background-color: var(--color-white);
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.input-text::placeholder {
+  color: var(--color-text-light);
+}
+
+.input-text:focus {
+  border-color: var(--color-primary);
+}
+
+.input-count {
+  position: relative;
+  width: 100%;
+}
+
+.input-count__counter {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: var(--color-text-light);
+  pointer-events: none;
+}
+
+.file-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.file-input__name {
+  flex: 1;
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background-color: var(--color-white);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-input__btn {
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.file-input__native {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Page — Main ()
+   -------------------------------------------------------------------------- */
+
+/* Main visual */
+.main-visual{padding:0 24px 0;margin-top:0; padding-bottom: 30px;}
+.main-visual-swiper{border-radius:30px;overflow:hidden;max-width:1400px;margin: 0 auto}
+.main-visual-swiper .swiper-slide{position:relative;}
+.main-visual-swiper .slide-bg{width:100%;height:100%;object-fit:cover}
+.main-visual-swiper .swiper-pagination{bottom:24px!important}
+.main-visual-swiper .swiper-pagination-bullet{width:15px;height:15px;background:#ddd;opacity:1}
+.main-visual-swiper .swiper-pagination-bullet-active{background:#ee6d82}
+
+/* Section */
+.section{padding:80px 24px}
+.section__inner{max-width:1400px;margin:0 auto}
+.section__title{font-size:40px;font-weight:800;color:#ee6d82;text-align:center;margin-bottom:36px;position:relative;}
+.section__title span{position: relative;  z-index: 10;}
+.section__title::before{content:'';display:block;width:172px;height:28px; position: absolute;  top: 27px;  left: 50%;  transform: translateX(-50%);background:url('../images/page/main_title_bg01.png') center/contain no-repeat}
+.programs .section__title::before{background:url('../images/page/main_title_bg02.png') center/contain no-repeat; width: 282px; top: 32px;}
+.section__subtitle{text-align:center;font-size:20px;font-weight:700;color:#7f7f7f;margin:-24px 0 48px}
+
+/* Schedule bg */
+.schedule{position:relative;background:#FFF4F6; margin: 170px 0;}
+.schedule::before,.schedule::after{content:'';position:absolute;left:0;right:0;height: 170px;background:url('../images/page/main_bg01.png') center/cover no-repeat;}
+.schedule::before{top:-130px;}
+.schedule::after{bottom:-130px; top:auto; transform: rotate(180deg);}
+
+
+/* Region tabs */
+.region-tabs{display:flex;align-items:center;gap:8px;margin-bottom:32px;max-width: 932px;margin: 0 auto; margin-bottom: 30px;}
+.region-tabs-swiper{flex:1;overflow:hidden}
+.region-tabs-swiper .swiper-slide{width:auto!important}
+.region-tab{padding:12px 4px;font-size:20px;font-weight:400;color:#5a371e;white-space:nowrap;}
+.region-tab.is-active{color:#ee6d82; font-weight: 700;}
+.region-tabs__arrow{width:50px;height:50px;flex-shrink:0;background:url('../images/common/arrow_brown_left.svg') center/contain no-repeat;}
+.region-tabs__arrow--next{transform:scaleX(-1)}
+
+/* Schedule layout */
+.schedule__content{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:1024px){.schedule__content{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}}
+.schedule__content > .calendar,
+.schedule__content > .education-panel{min-width:0;width:100%}
+
+/* Utilities */
+.is-hidden{display:none!important}
+
+/* Calendar */
+.calendar{background:#fff;border-radius:30px;padding:45px 55px;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.calendar__header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.calendar__month{font-size:24px;font-weight:800;color:#5a371e}
+.calendar__nav{display:flex;gap:8px}
+.calendar__nav button{width:46px;height:46px;background:url('../images/common/arrow_brown_left.svg') center/contain no-repeat;}
+.calendar__nav button.is-next{transform:scaleX(-1)}
+.calendar__weekdays{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:20px;font-weight:800;color:#5a371e;margin-bottom:12px; gap: 20px;}
+.calendar__weekdays span{padding:20px 0;}
+.calendar__weekdays .sun{color:#e74c3c}
+.calendar__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:12px 24px;}
+.calendar__day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#5a371e;border-radius:50%;position:relative}
+.calendar__day--other{color:#ccc}
+.calendar__day--has{background:#E3F5F5;cursor:pointer}
+.calendar__day--past{background:#f3f3f3;color:#bbb;cursor:not-allowed}
+.calendar__day--past.calendar__day--has{background:#f3f3f3}
+.calendar__day--selected{background:var(--color-accent);color:#fff}
+.calendar__day--has.calendar__day--selected{background:var(--color-accent);color:#fff}
+.calendar__day--today::after{content:'today';position:absolute;bottom:9px;left:50%;transform:translateX(-50%);font-size:14px;font-weight:800;color:var(--color-accent);line-height:1;letter-spacing:-0.02em;text-transform:lowercase}
+.calendar__day--today.calendar__day--selected::after{color:#fff}
+.calendar__day:not(.calendar__day--has):not(.calendar__day--other){cursor:default}
+
+/* Education panel */
+.education-panel{min-height:400px}
+.education-panel__empty{height:100%;}
+.education-panel__empty .education-card{height:100%;min-height:0}
+.education-card{background:#fff;border:5px solid var(--edu-green-border);border-radius:30px;padding:55px 45px;min-height:592px;display:flex;flex-direction:column;box-sizing:border-box}
+.education-panel__empty-title{display: flex;  align-items: center;  justify-content: center;font-size:26px;font-weight:800;color:#5a371e;text-align:center;margin-bottom:10px;line-height:1.4; height: 130px;}
+.education-card--empty .education-panel__empty-title{flex:0 0 auto;}
+.education-card--empty .meta-list{margin-top:auto; padding: 0 35px;}
+.education-panel__cards{height:592px}
+.education-panel__cards.is-multi .education-card{padding-bottom:72px}
+.education-panel__swiper-wrap{position:relative;height:100%}
+.education-panel__swiper-wrap .education-card-swiper{height:100%;overflow:hidden}
+.education-panel__arrow{display:none}
+.education-panel__arrow.swiper-button-disabled{opacity:.35;cursor:not-allowed}
+.meta-list{list-style:none;flex:1}
+.meta-list li,.education-card__meta li{display:flex;align-items:center;gap:32px;padding:10px 0;font-size:22px}
+.meta-list .label,.education-card__meta .label{display:inline-flex;align-items:center;gap:5px;font-weight:800;color:#5a371e}
+.meta-icon{width:26px;height:26px;flex-shrink:0;display:block}
+.education-card__tags{display:flex;gap:10px;justify-content:center;margin-bottom:10px;flex-wrap:wrap}
+.tag{padding:10px 15px;border-radius:30px;font-size:20px;font-weight:700; line-height: 23px; height: 42px;}
+.tag--type{color:#fff}
+.tag--gray{background:#fff;border:1px solid #dbdbdb;color:#5a371e}
+.education-card__title{display: flex;  align-items: center;  justify-content: center;font-size:26px;font-weight:800;color:#5a371e;text-align:center;margin-bottom:10px;line-height:1.4; height: 130px;}
+.education-card__meta{list-style:none;flex:1;min-height:0; padding: 0 35px;}
+.meta-list em{font-style:normal;font-weight:400}
+.btn-apply{margin-top:auto;width:100%;padding:15px 20px;background:var(--edu-green-border);border-radius:30px;font-size:20px;font-weight:800;color:var(--edu-green-btn-text);flex-shrink:0}
+.btn-apply:disabled{opacity:1;cursor:not-allowed}
+
+/* 교육일정 카드 CASE — 컬러별(메인·US030301 공통 컬러 키) */
+.education-card--green{border-color:var(--edu-green-border)}
+.education-card--green .tag--type{background:var(--edu-green-badge);border:1px solid var(--edu-green-badge)}
+.education-card--green .btn-apply{background:var(--edu-green-border);color:var(--edu-green-btn-text)}
+
+.education-card--teal{border-color:var(--edu-teal-border)}
+.education-card--teal .tag--type{background:var(--edu-teal-badge);border:1px solid var(--edu-teal-badge)}
+.education-card--teal .btn-apply{background:var(--edu-teal-border);color:var(--edu-teal-btn-text)}
+
+.education-card--blue{border-color:var(--edu-blue-border)}
+.education-card--blue .tag--type{background:var(--edu-blue-badge);border:1px solid var(--edu-blue-badge)}
+.education-card--blue .btn-apply{background:var(--edu-blue-border);color:var(--edu-blue-btn-text)}
+
+.education-card--yellow{border-color:var(--edu-yellow-border)}
+.education-card--yellow .tag--type{background:var(--edu-yellow-badge);border:1px solid var(--edu-yellow-badge)}
+.education-card--yellow .btn-apply{background:var(--edu-yellow-border);color:var(--edu-yellow-btn-text)}
+
+.education-card--orange{border-color:var(--edu-orange-border)}
+.education-card--orange .tag--type{background:var(--edu-orange-badge);border:1px solid var(--edu-orange-badge)}
+.education-card--orange .btn-apply{background:var(--edu-orange-border);color:var(--edu-orange-btn-text)}
+
+.education-card--gray{border-color:var(--edu-gray-border)}
+.education-card--gray .tag--type{background:var(--edu-gray-badge);border:1px solid var(--edu-gray-badge)}
+.education-card--gray .btn-apply{background:var(--edu-gray-border);color:var(--edu-gray-btn-text)}
+
+.education-card--purple{border-color:var(--edu-purple-border)}
+.education-card--purple .tag--type{background:var(--edu-purple-badge);border:1px solid var(--edu-purple-badge)}
+.education-card--purple .btn-apply{background:var(--edu-purple-border);color:var(--edu-purple-btn-text)}
+
+.education-card--pink{border-color:var(--edu-pink-border)}
+.education-card--pink .tag--type{background:var(--edu-pink-badge);border:1px solid var(--edu-pink-badge)}
+.education-card--pink .btn-apply{background:var(--edu-pink-border);color:var(--edu-pink-btn-text)}
+
+.education-card--red{border-color:var(--edu-red-border)}
+.education-card--red .tag--type{background:var(--edu-red-badge);border:1px solid var(--edu-red-badge)}
+.education-card--red .btn-apply{background:var(--edu-red-border);color:var(--edu-red-btn-text)}
+
+.education-card--navy{border-color:var(--edu-navy-border)}
+.education-card--navy .tag--type{background:var(--edu-navy-badge);border:1px solid var(--edu-navy-badge)}
+.education-card--navy .btn-apply{background:var(--edu-navy-border);color:var(--edu-navy-btn-text)}
+
+.education-card--skyblue{border-color:var(--edu-skyblue-border)}
+.education-card--skyblue .tag--type{background:var(--edu-skyblue-badge);border:1px solid var(--edu-skyblue-badge)}
+.education-card--skyblue .btn-apply{background:var(--edu-skyblue-border);color:var(--edu-skyblue-btn-text)}
+
+.education-card--lime{border-color:var(--edu-lime-border)}
+.education-card--lime .tag--type{background:var(--edu-lime-badge);border:1px solid var(--edu-lime-badge)}
+.education-card--lime .btn-apply{background:var(--edu-lime-border);color:var(--edu-lime-btn-text)}
+
+.education-card--brown{border-color:var(--edu-brown-border)}
+.education-card--brown .tag--type{background:var(--edu-brown-badge);border:1px solid var(--edu-brown-badge)}
+.education-card--brown .btn-apply{background:var(--edu-brown-border);color:var(--edu-brown-btn-text)}
+
+.education-card--coral{border-color:var(--edu-coral-border)}
+.education-card--coral .tag--type{background:var(--edu-coral-badge);border:1px solid var(--edu-coral-badge)}
+.education-card--coral .btn-apply{background:var(--edu-coral-border);color:var(--edu-coral-btn-text)}
+
+.education-card--olive{border-color:var(--edu-olive-border)}
+.education-card--olive .tag--type{background:var(--edu-olive-badge);border:1px solid var(--edu-olive-badge)}
+.education-card--olive .btn-apply{background:var(--edu-olive-border);color:var(--edu-olive-btn-text)}
+
+/* 일정 없음 */
+.education-card--empty{border-color:var(--edu-empty-border);color:var(--edu-empty-text)}
+.education-card--empty .education-panel__empty-title,
+.education-card--empty .education-card__meta,
+.education-card--empty .education-card__meta .label,
+.education-card--empty .meta-list,
+.education-card--empty .meta-list em{color:var(--edu-empty-text)}
+.education-card--empty .tag--gray{color:var(--edu-empty-text)}
+.education-card--empty .btn-apply{background:var(--edu-empty-btn);color:var(--edu-empty-btn-text)}
+.education-card-swiper .swiper-wrapper{height:100%}
+.education-card-swiper .swiper-slide{height:100%;display:flex;box-sizing:border-box}
+.education-card-swiper .swiper-slide .education-card{width:100%;height:100%;min-height:0;margin:0}
+.education-panel__cards:not(.is-multi) .education-card-swiper .swiper-pagination{display:none}
+.education-card-swiper .swiper-pagination{position:absolute;bottom:28px;left:0;right:0;width:100%;z-index:2}
+.education-card-swiper .swiper-pagination-bullet{width:10px;height:10px;background:#ddd;opacity:1;margin:0 5px}
+.education-card-swiper .swiper-pagination-bullet-active{background:#ee6d82}
+
+/* Programs */
+.programs{background:#fff}
+.programs__wrap{position: relative; margin: 0 auto; padding: 0 35px;}
+.program-swiper .swiper-slide{text-align:center;padding:20px}
+.program-card__img{width:220px;height:226px;object-fit:contain;margin:0 auto 20px}
+.program-card__title{font-size:30px;font-weight:800;color:#505050;margin-bottom:8px}
+.program-card__desc{font-size:20px;font-weight:700;color:#808080;line-height:1.5}
+.programs__arrow{position:absolute;top:50%;transform:translateY(-50%) scaleX(-1);width:35px;height:35px;z-index:2;background:center/contain no-repeat url('../images/common/ArrowBackIosNewSharp.svg')}
+.programs__arrow--prev{left:0}
+.programs__arrow--next{right:0;transform:translateY(-50%);}
+
+/* Footer */
+.footer{position:relative;background: url(../images/page/footer_bg.png) center / cover no-repeat; padding: 80px 40px 100px; margin-top:40px}
+.footer__inner{max-width:1400px;margin:0 auto;position:relative}
+.footer__top{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-bottom:20px}
+.footer__logo{width: 300px;}
+.footer__links{display:flex;gap:16px;font-size:14px;color:#666; margin-bottom: 15px;}
+.footer__links a.bold-link{font-weight:700;}
+.footer__address,.footer__copy{font-size:14px;color:#888;}
+.footer__selects{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px; align-items: end;}
+.footer__selects select{min-width:200px; width: 249px; height: 48px; padding:12px 40px 12px 16px;border:1px solid #ddd;border-radius:8px;font-size:14px;background-color:#fff;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url('../images/common/arrow_down_gray.svg');background-repeat:no-repeat;background-position:right 16px center;background-size:14px 14px}
+.footer__badge{width: 65px; height: 61px;}
+
+
+
+
+/* --------------------------------------------------------------------------
+   Responsive — 1500px 이하
+   -------------------------------------------------------------------------- */
+@media (max-width: 1500px) {
+  .header__inner{padding-right: 50px;}  
+
+  
+
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive — 1448px 이하
+   -------------------------------------------------------------------------- */
+   @media (max-width: 1440px) {
+
+    /* breadcrumb */
+  .breadcrumb__inner{
+    padding: 0 24px;
+  }
+
+  .user-apply-page .body{
+    padding: 63px 24px 80px;
+  }
+
+  }
+  
+
+/* --------------------------------------------------------------------------
+   Responsive — 1400px 이하
+   -------------------------------------------------------------------------- */
+   @media (max-width: 1400px) {
+    
+    /* Schedule */
+    .schedule .section__inner{
+      max-width: 900px;
+    }
+ 
+    .schedule {
+    margin: 0;
+    background: #fff4f6;
+  }
+
+  .schedule::before,
+  .schedule::after {
+    display: none;
+  }
+
+  .region-tabs {
+    max-width: none;
+    margin-bottom: 16px;
+    gap: 0;
+  }
+
+  .region-tabs__arrow {
+    width: 50px;
+    height: 50px;
+  }
+
+  .region-tab {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+
+  .schedule__content {
+    gap: 15px;
+  }
+
+  /* Calendar */
+  .calendar {
+    padding: 20px 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .calendar__month {
+    font-size: 16px;
+  }
+
+  .calendar__nav button {
+    width: 34px;
+    height: 34px;
+  }
+
+  .calendar__weekdays {
+    font-size: 14px;
+    gap: 0;
+    margin-bottom: 4px;
+  }
+
+  .calendar__weekdays span {
+    padding: 10px 0;
+  }
+
+  .calendar__grid {
+    gap: 16px;
+  }
+
+  .calendar__day {
+    font-size: 14px;
+    aspect-ratio: auto;
+    min-height: 44px;
+    border-radius: 100px;
+  }
+
+  .calendar__day--today::after {
+    font-size: 10px;
+    bottom: 4px;
+  }
+
+  /* Education panel */
+  .education-panel {
+    min-height: 0;
+  }
+
+  .education-panel__cards {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .education-card {
+    min-height: 0;
+    padding: 24px 16px 48px;
+    border-width: 3px;
+    border-radius: 20px;
+  }
+
+  .education-panel__empty-title,
+  .education-card__title {
+    font-size: 18px;
+    height: auto;
+    min-height: 80px;
+    margin-bottom: 16px;
+  }
+
+  .education-card__tags {
+    margin-bottom: 12px;
+  }
+
+  .tag {
+    height: auto;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .meta-list li,
+  .education-card__meta li {
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 14px;
+  }
+
+  .education-card__meta,
+  .education-card--empty .meta-list {
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .meta-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .btn-apply {
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 24px;
+  }
+
+  .education-panel__swiper-wrap {
+    padding: 0;
+  }
+
+  .education-panel__cards.is-multi .education-card {
+    padding-bottom: 48px;
+  }
+
+  .education-card-swiper .swiper-pagination {
+    bottom: 16px;
+  }
+
+  .education-card-swiper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+  }
+
+  
+  /* Programs */
+  .programs__wrap {
+    padding: 0 28px;
+  }
+
+  .program-swiper .swiper-slide {
+    padding: 12px 8px;
+  }
+
+  .program-card__img {
+    width: 140px;
+    height: 144px;
+    margin-bottom: 12px;
+  }
+
+  .program-card__title {
+    font-size: 18px;
+  }
+
+  .program-card__desc {
+    font-size: 14px;
+  }
+
+  .programs__arrow {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  }
+
+/* --------------------------------------------------------------------------
+   Responsive — 1280px 이하
+   -------------------------------------------------------------------------- */
+   @media (max-width: 1280px) {
+    .header__inner{padding-right: 50px;}  
+
+    .wrap .sidebar {
+      display: none;
+    }
+  
+    .sub-page-head {
+      text-align: center;
+    }
+  
+  
+  }
+
+/* --------------------------------------------------------------------------
+   Responsive — 1023px 이하 (모바일)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  body {
+    padding-top: 56px;
+  }
+
+  .header {
+    height: 56px;
+    border-bottom: 1px solid #f3f3f3;
+  }
+
+  .header__inner {
+    max-width: none;
+    padding: 16px 20px;
+  }
+
+  .logo img {
+    width: auto;
+    height: 17px;
+    max-width: 160px;
+  }
+
+  .header__menu-btn {
+    display: flex;
+  }
+
+  .gnb {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px 20px 40px;
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
+  }
+
+  .gnb.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform 0.25s ease, visibility 0s linear 0s;
+  }
+
+  .gnb__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+  }
+
+  .gnb__item {
+    width: 100%;
+    border-top: 1px solid #f3f3f3;
+  }
+
+  .gnb__item:first-child {
+    border-top: none;
+  }
+
+  .gnb__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #373737;
+  }
+
+  .gnb__link::after {
+    content: "";
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    background: url("../images/common/icon_gnb_chevron.svg") center / contain no-repeat;
+    transition: transform 0.2s ease;
+  }
+
+  .gnb__item.is-expanded .gnb__link::after {
+    transform: rotate(180deg);
+  }
+
+  .gnb__item:hover .gnb__link,
+  .gnb__item:focus-within .gnb__link {
+    color: #373737;
+  }
+
+  .gnb__dropdown {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    padding: 0 0 20px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    display: none;
+  }
+
+  .gnb__item.is-expanded .gnb__dropdown {
+    display: block;
+  }
+
+  .gnb__dropdown-inner {
+    padding: 20px;
+    border-radius: 12px;
+    background: #fff4f6;
+    box-shadow: none;
+  }
+
+  .gnb__dropdown-inner::before {
+    display: none;
+  }
+
+  .gnb__sub a {
+    padding: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #5a371e;
+    text-align: left;
+    border-bottom: none;
+  }
+
+  .gnb__sub li + li {
+    margin-top: 20px;
+  }
+
+  .gnb__sub a:hover,
+  .gnb__sub li.is-active a {
+    color: #5a371e;
+  }
+
+  body.is-gnb-open {
+    overflow: hidden;
+  }
+
+  /* Main visual */
+  .main-visual {
+    padding: 0;
+    padding-bottom: 0;
+  }
+
+  .main-visual-swiper {
+    border-radius: 0;
+    max-width: none;
+  }
+
+  .main-visual-swiper .swiper-pagination {
+    bottom: 12px !important;
+  }
+
+  .main-visual-swiper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Section */
+  .section {
+    padding: 40px 16px;
+  }
+
+  .section__inner,.schedule .section__inner{
+    max-width: 600px;
+  }
+
+  .section__title {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .section__title::before {
+    width: 108px;
+    height: 18px;
+    top: 16px;
+  }
+
+  .programs .section__title::before {
+    width: 180px;
+    top: 18px;
+  }
+
+  .section__subtitle {
+    font-size: 14px;
+    margin: -12px 0 24px;
+  }
+
+  
+/* Calendar */
+.calendar__grid{place-items: center; gap: 12px 0;}
+.calendar__day{min-height: auto; width: 36px; height: 36px;}
+  
+/* Education panel */
+.tag{padding: 3px 8px; font-size: 10px;}
+
+  /* Footer */
+  .footer {
+    padding: 42px 16px 48px;
+    margin-top: 0;
+    background-size: cover;
+    background-position: 0 0;
+  }
+
+  .footer__inner {
+    max-width: none;
+  }
+
+  .footer__logo {
+    width: 200px;
+    max-width: 100%;
+  }
+
+  .footer__links {
+    gap: 20px;
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  .footer__address,
+  .footer__copy {
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 0;
+  }
+
+  .footer__copy {
+    display: block;
+    margin-top: 4px;
+  }
+
+  .footer__selects {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .footer__selects select {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: 12px 40px 12px 15px;
+    font-size: 12px;
+    border-radius: 5px;
+    border-color: #bbb;
+  }
+
+  .footer__badge {
+    position: static;
+    margin-top: 4px;
+  }
+
+  .breadcrumb {
+    height: 36px;
+  }
+
+  .breadcrumb__inner {
+    max-width: none;
+    padding: 10px 16px;
+  }
+
+  .breadcrumb__list {
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .breadcrumb__item + .breadcrumb__item::before {
+    width: 14px;
+    height: 14px;
+  }
+
+  .user-apply-page .body {
+    padding: 38px 16px 48px;
+    display: block;
+  }
+ 
+  .sub-page-head__title {
+    font-size: 22px;
+  }
+
+  .sub-page-head__desc {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+
+  .region-select__grid {
+    margin-top: 32px;
+    max-width: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px 10px;
+  }
+
+  .region-select__btn {
+    min-height: 50px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .region-select__grid .region-select__btn:last-child {
+    grid-column: 1 / 2;
+  }
+
+  /* US030301 지역 센터 교육 리스트 — 모바일 */
+  /* 페이지 타이틀 + 오시는길 (세로 배치, 가운데 정렬) */
+  .edu-detail-head {
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .edu-place-btn {
+    font-size: 12px;
+    padding: 4px 15px 4px 10px;
+  }
+
+  .edu-place-btn svg,
+  .edu-place-btn img {
+    width: 15px;
+    height: 15px;
+  }
+
+  /* 탭 — 가운데 알약형(전체폭 아님) */
+  .edu-tabs {
+    margin-top: 24px;
+  }
+
+  .edu-tabs__inner {
+    border-radius: 12px;
+  }
+
+  .edu-tab {
+    padding: 10px 40px;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  /* 필터 — 가로 2열 */
+  .edu-filters {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .edu-select {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .edu-select select {
+    padding: 12px 36px 12px 15px;
+    font-size: 12px;
+  }
+
+  /* 교육 카드 */
+  .edu-list {
+    margin-top: 15px;
+    gap: 15px;
+  }
+
+  .edu-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    min-height: 0;
+    padding: 30px 28px;
+  }
+
+  .edu-card__head {
+    gap: 20px;
+  }
+
+  .edu-card__badge {
+    width: 150px;
+    max-width: 100%;
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+
+  .edu-card__title {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .edu-card__info {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .edu-card__meta-row {
+    gap: 25px;
+    padding: 5px 0;
+  }
+
+  .edu-card__meta-label {
+    font-size: 14px;
+  }
+
+  .edu-card__meta-value {
+    font-size: 14px;
+  }
+
+  .edu-card__btn {
+    width: 100%;
+    min-width: 0;
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .edu-card.is-closed::after {
+    border-radius: 25px;
+  }
+
+  /* 지점안내 팝업 — 모바일(전체화면) */
+  .branch-modal__panel {
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    max-height: none;
+    gap: 25px;
+    border-radius: 0;
+  }
+
+  .branch-modal__head {
+    padding: 20px;
+  }
+
+  .branch-modal__title {
+    font-size: 16px;
+  }
+
+  .branch-modal__close {
+    width: 20px;
+    height: 20px;
+  }
+
+  .branch-modal__map {
+    margin: 0 16px;
+  }
+
+  .branch-modal__body {
+    padding: 0 16px;
+  }
+
+  .branch-modal__region,
+  .branch-modal__card-wrap {
+    padding: 0;
+  }
+
+  .branch-modal__card {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .branch-info {
+    grid-template-columns: 1fr;
+  }
+
+  .branch-info__facilities {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    gap: 30px;
+  }
+
+  /* 오시는길 리스트 — 모바일(1열 세로 카드) */
+  .visit-list {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    min-height: 0;
+    padding: 30px 25px;
+    text-align: center;
+  }
+
+  .visit-card__name {
+    width: auto;
+    padding: 0;
+    font-size: 20px;
+    letter-spacing: -0.8px;
+  }
+
+  .visit-card__body {
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .visit-card__addr {
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .visit-card__tel {
+    font-size: 14px;
+  }
+
+  .visit-card__icons img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive — 430px 이하
+   -------------------------------------------------------------------------- */
+
+   @media(max-width:430px){
+
+    .sub-page-head__title {
+      font-size: 22px;
+    }
+
+    .education-panel__empty-title, .education-card__title{
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .education-card__tags {
+       gap: 8px;
+      }
+
+   }
+
+/* --------------------------------------------------------------------------
+   Responsive — 2170px 이상
+   -------------------------------------------------------------------------- */
+
+   @media(min-width:2170px){
+    .footer{background-size: auto 100%;}
+   }

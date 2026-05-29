@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+@import url("../fonts/nanumsquareround.css");
+
+/* ==========================================================================
+   Reset + Base — NH 청소년금융교육센터 사용자
+   ========================================================================== */
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  font-weight: inherit;
+  text-align: inherit;
+}
+
+fieldset {
+  min-width: 0;
+  border: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+address,
+em,
+i {
+  font-style: normal;
+}
+
+strong,
+b {
+  font-weight: inherit;
+}
+
+hr {
+  border: 0;
+  height: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Base --- */
+:root {
+  /* Brand */
+  --color-primary: #5a371e;
+  --color-primary-hover: #6a4d3b;
+  --color-accent: #FF8296;
+
+  /* Neutral */
+  --color-white: #fff;
+  --color-bg: #f5f5f5;
+  --color-border: #ddd;
+  --color-border-light: #eee;
+  --color-text: #373737;
+  --color-text-muted: #666;
+  --color-text-light: #999;
+
+  /* --------------------------------------------------------------------------
+     교육 카드 컬러 팔레트 (Figma) — 단일 소스
+     메인(index)·지역센터 교육리스트(US030301) 카드가 공통으로 참조한다.
+     어드민에서 컬러를 선택하면 동일한 컬러 키(green/teal/...)로 양쪽이 매칭된다.
+       *-badge    : 배지 배경색(주 컬러)
+       *-border   : 카드 테두리 / 신청 버튼 배경(연한 톤)
+       *-btn-text : 신청 버튼 글자색
+     -------------------------------------------------------------------------- */
+  --edu-green-badge: #4caf50;   --edu-green-border: #cdf6ce;   --edu-green-btn-text: #377d3a;
+  --edu-teal-badge: #04c0a7;    --edu-teal-border: #baede6;    --edu-teal-btn-text: #008b79;
+  --edu-blue-badge: #2f6bff;    --edu-blue-border: #c9d9ff;    --edu-blue-btn-text: #2356d5;
+  --edu-yellow-badge: #ffc000;  --edu-yellow-border: #ffe9a5;  --edu-yellow-btn-text: #a68421;
+  --edu-orange-badge: #ff8a00;  --edu-orange-border: #ffd6a5;  --edu-orange-btn-text: #844800;
+  --edu-gray-badge: #ac9595;    --edu-gray-border: #ede4e4;    --edu-gray-btn-text: #605353;
+  --edu-purple-badge: #7b61ff;  --edu-purple-border: #dad3ff;  --edu-purple-btn-text: #4f3ea4;
+  --edu-pink-badge: #ff8ad8;    --edu-pink-border: #ffe4f6;    --edu-pink-btn-text: #8e3a72;
+  --edu-red-badge: #e53935;     --edu-red-border: #ffe4e3;     --edu-red-btn-text: #8d2825;
+  --edu-navy-badge: #1565c0;    --edu-navy-border: #c3dcf9;    --edu-navy-btn-text: #0e3c70;
+  --edu-skyblue-badge: #29b6f6; --edu-skyblue-border: #a7e3ff; --edu-skyblue-btn-text: #1c7197;
+  --edu-lime-badge: #8bc34a;    --edu-lime-border: #e9fbd3;    --edu-lime-btn-text: #54772b;
+  --edu-brown-badge: #795548;   --edu-brown-border: #d7d2d0;   --edu-brown-btn-text: #51342a;
+  --edu-coral-badge: #ff6b6b;   --edu-coral-border: #ffdada;   --edu-coral-btn-text: #d25252;
+  --edu-olive-badge: #9e9d24;   --edu-olive-border: #efefc2;   --edu-olive-btn-text: #78771b;
+
+  /* 일정 없음(empty) 카드 */
+  --edu-empty-border: #e4e4e4;
+  --edu-empty-text: #a7a6a6;
+  --edu-empty-btn: #f6f6f6;
+  --edu-empty-btn-text: #aaa;
+
+  /* Layout */
+  --header-height: 120px;
+  --breadcrumb-height: 50px;
+  --sidebar-width: 250px;
+
+  /* Typography */
+  --font-family: "NanumSquareRound", "Malgun Gothic", sans-serif;
+  --font-size-base: 14px;
+  --line-height-base: 1.5;
+}
+
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
