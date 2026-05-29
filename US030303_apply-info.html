@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/images/page/simbol.png" type="image/png">
+  <title>교육신청정보 입력 | NH 청소년 금융교육센터</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+</head>
+<body class="user-apply-page user-apply-info-page">
+  <div class="wrap">
+      <!-- Header -->
+      <header class="header">
+        <div class="header__inner">
+          <h1 class="logo">
+            <a href="/"><picture>
+              <source media="(max-width: 1023px)" srcset="assets/images/page/m_logo.png">
+              <img src="assets/images/page/logo.png" alt="NH 청소년금융교육센터" />
+            </picture></a>
+          </h1>
+          <button type="button" class="header__menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="headerNav">
+            <img src="assets/images/common/icon_gnb_menu.svg" alt="" class="header__menu-icon header__menu-icon--open" width="24" height="24">
+            <img src="assets/images/common/icon_gnb_close.svg" alt="" class="header__menu-icon header__menu-icon--close" width="24" height="24">
+          </button>
+
+          <nav class="gnb" id="headerNav" aria-label="주 메뉴">
+            <ul class="gnb__list">
+              <li class="gnb__item">
+                <a href="#" class="gnb__link">센터안내</a>
+                <div class="gnb__dropdown">
+                  <div class="gnb__dropdown-inner">
+                    <ul class="gnb__sub">
+                      <li><a href="#">청소년 금융교육센터 안내</a></li>
+                      <li><a href="#">홍보영상</a></li>
+                      <li><a href="#">공지사항</a></li>
+                      <li><a href="US020401_visit-list.html">오시는 길</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="gnb__item is-expanded">
+                <a href="#" class="gnb__link">교육신청</a>
+                <div class="gnb__dropdown">
+                  <div class="gnb__dropdown-inner">
+                    <ul class="gnb__sub">
+                      <li><a href="#">교육 커리큘럼 소개</a></li>
+                      <li><a href="#">교육신청</a></li>
+                      <li><a href="#">교육신청 내역</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="gnb__item">
+                <a href="#" class="gnb__link">커뮤니티</a>
+                <div class="gnb__dropdown">
+                  <div class="gnb__dropdown-inner">
+                    <ul class="gnb__sub">
+                      <li><a href="#">교육참가후기</a></li>
+                      <li><a href="#">교육사진</a></li>
+                      <li><a href="#">금융교육자료실</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <div class="breadcrumb__inner">
+          <nav class="breadcrumb__nav" aria-label="현재 위치">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a href="#" class="breadcrumb__home" aria-label="홈">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
+                    <path d="M8 17V11H12V17H17V9H20L10 0L0 9H3V17H8Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="breadcrumb__item">교육 신청</li>
+              <li class="breadcrumb__item is-current" aria-current="page">교육 신청 정보 입력</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="body">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <h2 class="sidebar__title">교육 신청</h2>
+          <nav aria-label="서브 메뉴">
+            <ul class="sidebar__list">
+              <li class="sidebar__item">
+                <a href="#">교육 커리큘럼 소개</a>
+              </li>
+              <li class="sidebar__item is-active">
+                <a href="#">교육 신청</a>
+              </li>
+              <li class="sidebar__item">
+                <a href="#">교육 신청 내역</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+          <div class="main__inner">
+            <section class="apply-info" aria-labelledby="applyInfoTitle">
+              <header class="sub-page-head">
+                <h2 class="sub-page-head__title" id="applyInfoTitle">교육 신청</h2>
+              </header>
+
+              <!-- 교육 요약 카드 -->
+              <div class="apply-summary">
+                <article class="edu-card edu-card--green">
+                  <div class="edu-card__head">
+                    <span class="edu-card__badge">상시교육</span>
+                    <h3 class="edu-card__title">센터별 연중 상시 운영되는 기본 금융교육</h3>
+                  </div>
+                  <div class="edu-card__info">
+                    <div class="edu-card__meta">
+                      <div class="edu-card__meta-row">
+                        <span class="edu-card__meta-label">
+                          <img src="assets/images/page/DateRangeSharp.svg" alt="" width="18" height="18">
+                          교육일정
+                        </span>
+                        <span class="edu-card__meta-value">2026.04.07 오후 2시</span>
+                      </div>
+                      <div class="edu-card__meta-row">
+                        <span class="edu-card__meta-label">
+                          <img src="assets/images/page/PersonSearchSharp.svg" alt="" width="18" height="18">
+                          교육대상
+                        </span>
+                        <span class="edu-card__meta-value">초등학생 (1-3학년)</span>
+                      </div>
+                      <div class="edu-card__meta-row">
+                        <span class="edu-card__meta-label">
+                          <img src="assets/images/page/CategorySharp.svg" alt="" width="18" height="18">
+                          교육형태
+                        </span>
+                        <span class="edu-card__meta-value">대면(센터) 교육</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <form id="applyInfoForm" class="apply-info__form" novalidate>
+                <!-- 신청자 정보 -->
+                <div class="form-section">
+                  <div class="form-section__head">
+                    <h3 class="form-section__title">신청자</h3>
+                    <p class="form-section__desc">보호자의 정보를 입력해주세요.</p>
+                  </div>
+                  <div class="form-section__fields">
+                    <div class="form-field" data-field="applicantName">
+                      <label class="form-field__label" for="applicantName">이름</label>
+                      <input type="text" class="input-text" id="applicantName" name="applicantName" placeholder="이름을 입력해 주세요" autocomplete="name">
+                      <p class="form-field__error" role="alert"></p>
+                    </div>
+                    <div class="form-field" data-field="applicantPhone">
+                      <label class="form-field__label" for="applicantPhone">휴대폰번호</label>
+                      <input type="tel" class="input-text" id="applicantPhone" name="applicantPhone" placeholder="휴대폰번호를 입력해 주세요 (- 없이 입력)" inputmode="numeric" autocomplete="tel">
+                      <p class="form-field__error" role="alert"></p>
+                    </div>
+                    <div class="form-field" data-field="applicantPassword">
+                      <label class="form-field__label" for="applicantPassword">비밀번호</label>
+                      <input type="password" class="input-text" id="applicantPassword" name="applicantPassword" placeholder="문자, 숫자 포함 8~16자리" autocomplete="new-password">
+                      <p class="form-field__error" role="alert"></p>
+                    </div>
+                    <div class="form-field" data-field="applicantPasswordConfirm">
+                      <label class="form-field__label" for="applicantPasswordConfirm">비밀번호 확인</label>
+                      <input type="password" class="input-text" id="applicantPasswordConfirm" name="applicantPasswordConfirm" placeholder="비밀번호를 다시 입력해 주세요" autocomplete="new-password">
+                      <p class="form-field__error" role="alert"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 참가자 정보 -->
+                <div class="form-section">
+                  <div class="form-section__head">
+                    <h3 class="form-section__title">참가자</h3>
+                    <p class="form-section__desc">보호자의 정보를 입력해주세요.(교육 신청은 부모님만 신청 가능합니다.)</p>
+                  </div>
+                  <div class="form-section__fields">
+                    <div class="form-field" data-field="participantName">
+                      <label class="form-field__label" for="participantName">이름</label>
+                      <input type="text" class="input-text" id="participantName" name="participantName" placeholder="이름을 입력해 주세요">
+                      <p class="form-field__error" role="alert"></p>
+                    </div>
+                    <div class="form-field" data-field="participantGender">
+                      <span class="form-field__label" id="participantGenderLabel">성별</span>
+                      <div class="form-radios" role="radiogroup" aria-labelledby="participantGenderLabel">
+                        <label class="radio">
+                          <input type="radio" name="participantGender" value="male">
+                          <span class="radio__icon" aria-hidden="true"></span>
+                          <span class="radio__text">남</span>
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="participantGender" value="female">
+                          <span class="radio__icon" aria-hidden="true"></span>
+                          <span class="radio__text">여</span>
+                        </label>
+                      </div>
+                      <p class="form-field__error" role="alert"></p>
+                    </div>
+                    <div class="form-field" data-field="birthDate">
+                      <span class="form-field__label" id="birthDateLabel">생년월일</span>
+                      <div class="form-birth" role="group" aria-labelledby="birthDateLabel">
+                        <div class="form-select">
+                          <select id="birthYear" name="birthYear" aria-label="출생년">
+                            <option value="">년</option>
+                          </select>
+                        </div>
+                        <div class="form-select">
+                          <select id="birthMonth" name="birthMonth" aria-label="출생월">
+                            <option value="">월</option>
+                          </select>
+                        </div>
+                        <div class="form-select">
+                          <select id="birthDay" name="birthDay" aria-label="출생일">
+                            <option value="">일</option>
+                          </select>
+                        </div>
+                      </div>
+                      <p class="form-field__error" role="alert"></p>
+                    </div>
+                    <div class="form-field" data-field="school">
+                      <span class="form-field__label" id="schoolLabel">학교</span>
+                      <div class="form-school">
+                        <span class="form-school__name" id="schoolName"></span>
+                        <button type="button" class="btn btn--search" id="schoolSearchBtn">학교 검색</button>
+                      </div>
+                      <input type="hidden" id="schoolValue" name="schoolValue" value="">
+                      <p class="form-field__error" role="alert"></p>
+                    </div>
+                    <div class="form-field" data-field="gradeLevel">
+                      <label class="form-field__label" for="gradeLevel">학년 구분</label>
+                      <div class="form-select">
+                        <select id="gradeLevel" name="gradeLevel">
+                          <option value="">학년 구분을 선택해 주세요</option>
+                          <option value="elementary">초등학생</option>
+                          <option value="middle">중학생</option>
+                          <option value="high">고등학생</option>
+                        </select>
+                      </div>
+                      <p class="form-field__error" role="alert"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="apply-info__actions">
+                  <button type="button" class="btn btn--cancel" id="applyCancelBtn">취소</button>
+                  <button type="submit" class="btn btn--submit">신청서 작성</button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <img src="assets/images/page/footer_logo.png" alt="" class="footer__logo">
+      </div>
+      <nav class="footer__links">
+        <a href="#">금융소비자보호</a>
+        <a href="#" class="bold-link">개인정보처리방침</a>
+      </nav>
+      <p class="footer__address">서울특별시 중구 통일로 120 NH농협은행 본점</p>
+      <p class="footer__copy">Copyright 2026 By NHBank All Rights Reserved.</p>
+      <div class="footer__selects">
+        <select>
+          <option>계열사 사이트</option>
+        </select>
+        <select>
+          <option>관련 사이트</option>
+        </select>
+        <img src="assets/images/page/footer_mark.png" alt="" class="footer__badge">
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function ($) {
+      var MSG = {
+        nameRequired: '이름을 입력해 주세요',
+        phoneRequired: '휴대폰번호를 입력해 주세요',
+        phoneInvalid: '올바른 휴대폰번호를 입력해 주세요',
+        passwordRequired: '비밀번호를 입력해 주세요',
+        passwordInvalid: '비밀번호 형식을 확인해 주세요',
+        passwordConfirmRequired: '비밀번호를 입력해 주세요',
+        passwordMismatch: '비밀번호가 일치하지 않습니다',
+        birthRequired: '생년월일을 입력해 주세요',
+        birthInvalid: '올바른 생년월일을 입력해 주세요',
+        gradeRequired: '학년 구분을 선택해 주세요',
+        genderRequired: '성별을 선택해 주세요',
+        schoolRequired: '학교를 선택해 주세요',
+        schoolSearchRequired: '학교를 검색 후 선택해 주세요'
+      };
+
+      var schoolSearchOpened = false;
+
+      function getField(name) {
+        return $('[data-field="' + name + '"]');
+      }
+
+      function setError(name, message) {
+        getField(name).addClass('is-error').find('.form-field__error').text(message);
+      }
+
+      function clearError(name) {
+        getField(name).removeClass('is-error').find('.form-field__error').text('');
+      }
+
+      function clearAllErrors() {
+        $('.form-field').removeClass('is-error').find('.form-field__error').text('');
+      }
+
+      function onlyDigits(value) {
+        return (value || '').replace(/\D/g, '');
+      }
+
+      function validateName(value) {
+        if (!$.trim(value)) return MSG.nameRequired;
+        return '';
+      }
+
+      function validatePhone(value) {
+        var digits = onlyDigits(value);
+        if (!digits) return MSG.phoneRequired;
+        if (!/^\d{10,11}$/.test(digits)) return MSG.phoneInvalid;
+        return '';
+      }
+
+      function validatePassword(value) {
+        if (!$.trim(value)) return MSG.passwordRequired;
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]{8,16}$/.test(value)) {
+          return MSG.passwordInvalid;
+        }
+        return '';
+      }
+
+      function validatePasswordConfirm(password, confirm) {
+        if (!$.trim(confirm)) return MSG.passwordConfirmRequired;
+        if (password !== confirm) return MSG.passwordMismatch;
+        return '';
+      }
+
+      function isValidDate(y, m, d) {
+        var year = parseInt(y, 10);
+        var month = parseInt(m, 10);
+        var day = parseInt(d, 10);
+        var date = new Date(year, month - 1, day);
+        if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
+          return false;
+        }
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return date <= today;
+      }
+
+      function validateBirthDate() {
+        var year = $('#birthYear').val();
+        var month = $('#birthMonth').val();
+        var day = $('#birthDay').val();
+        if (!year || !month || !day) return MSG.birthRequired;
+        var ymd = year + String(month).padStart(2, '0') + String(day).padStart(2, '0');
+        if (!/^\d{8}$/.test(ymd) || !isValidDate(year, month, day)) return MSG.birthInvalid;
+        return '';
+      }
+
+      function validateGender() {
+        if (!$('input[name="participantGender"]:checked').length) return MSG.genderRequired;
+        return '';
+      }
+
+      function validateGrade() {
+        if (!$('#gradeLevel').val()) return MSG.gradeRequired;
+        return '';
+      }
+
+      function validateSchool() {
+        var schoolValue = $('#schoolValue').val();
+        if (schoolValue) return '';
+        if (schoolSearchOpened) return MSG.schoolSearchRequired;
+        return MSG.schoolRequired;
+      }
+
+      function validateField(name) {
+        var error = '';
+        switch (name) {
+          case 'applicantName':
+            error = validateName($('#applicantName').val());
+            break;
+          case 'applicantPhone':
+            error = validatePhone($('#applicantPhone').val());
+            break;
+          case 'applicantPassword':
+            error = validatePassword($('#applicantPassword').val());
+            break;
+          case 'applicantPasswordConfirm':
+            error = validatePasswordConfirm($('#applicantPassword').val(), $('#applicantPasswordConfirm').val());
+            break;
+          case 'participantName':
+            error = validateName($('#participantName').val());
+            break;
+          case 'participantGender':
+            error = validateGender();
+            break;
+          case 'birthDate':
+            error = validateBirthDate();
+            break;
+          case 'school':
+            error = validateSchool();
+            break;
+          case 'gradeLevel':
+            error = validateGrade();
+            break;
+        }
+        if (error) setError(name, error);
+        else clearError(name);
+        return !error;
+      }
+
+      function validateForm() {
+        var fields = [
+          'applicantName', 'applicantPhone', 'applicantPassword', 'applicantPasswordConfirm',
+          'participantName', 'participantGender', 'birthDate', 'school', 'gradeLevel'
+        ];
+        var isValid = true;
+        fields.forEach(function (name) {
+          if (!validateField(name)) isValid = false;
+        });
+        return isValid;
+      }
+
+      function initBirthSelects() {
+        var currentYear = new Date().getFullYear();
+        var $year = $('#birthYear');
+        var $month = $('#birthMonth');
+        var $day = $('#birthDay');
+
+        for (var y = currentYear; y >= currentYear - 20; y--) {
+          $year.append('<option value="' + y + '">' + y + '년</option>');
+        }
+        for (var m = 1; m <= 12; m++) {
+          $month.append('<option value="' + m + '">' + m + '월</option>');
+        }
+        for (var d = 1; d <= 31; d++) {
+          $day.append('<option value="' + d + '">' + d + '일</option>');
+        }
+      }
+
+      function selectSchool(name, value) {
+        $('#schoolName').text(name);
+        $('#schoolValue').val(value || name);
+        clearError('school');
+      }
+
+      initBirthSelects();
+
+      $('#applyInfoForm').on('submit', function (e) {
+        e.preventDefault();
+        clearAllErrors();
+        if (validateForm()) {
+          alert('신청서 작성이 완료되었습니다.');
+        } else {
+          var $firstError = $('.form-field.is-error').first();
+          if ($firstError.length) {
+            $('html, body').animate({ scrollTop: $firstError.offset().top - 120 }, 300);
+          }
+        }
+      });
+
+      $('#applyInfoForm').on('blur', '.input-text', function () {
+        validateField($(this).closest('.form-field').data('field'));
+      });
+
+      $('#applyInfoForm').on('change', 'select, input[type="radio"]', function () {
+        var $field = $(this).closest('.form-field');
+        if ($field.length) validateField($field.data('field'));
+      });
+
+      $('#birthYear, #birthMonth, #birthDay').on('change', function () {
+        validateField('birthDate');
+      });
+
+      $('#schoolSearchBtn').on('click', function () {
+        schoolSearchOpened = true;
+        /* CO010101 학교 검색 팝업 연동 예정 — 퍼블리싱 데모용 선택 처리 */
+        selectSchool('창천초등학교', 'school-001');
+      });
+
+      $('#applyCancelBtn').on('click', function () {
+        if (confirm('작성 중인 내용이 저장되지 않습니다. 이전 페이지로 이동하시겠습니까?')) {
+          location.href = 'US030302_agree.html';
+        }
+      });
+
+      /* Figma 에러 상태 확인용: 휴대폰번호 blur 시 형식 검증 */
+      $('#applicantPhone').on('input', function () {
+        if (getField('applicantPhone').hasClass('is-error')) {
+          validateField('applicantPhone');
+        }
+      });
+    })(jQuery);
+  </script>
+</body>
+</html>

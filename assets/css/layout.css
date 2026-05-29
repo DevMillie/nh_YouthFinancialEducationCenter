@@ -461,7 +461,7 @@ body.is-gnb-open .header__menu-icon--close {
 .edu-select select {
   width: 100%;
   padding: 15px 40px 15px 15px;
-  border: 1px solid rgba(202, 202, 202, 0.87);
+  border: 1px solid var(--color-input-border);
   border-radius: 10px;
   background-color: #fff;
   color: #373737;
@@ -998,6 +998,29 @@ body.is-modal-open {
 }
 
 /* --------------------------------------------------------------------------
+   교육신청 정보입력 (US030303)
+   -------------------------------------------------------------------------- */
+.apply-summary {
+  margin-bottom: 50px;
+}
+
+.apply-summary .edu-card {
+  min-height: 0;
+}
+
+.apply-info__actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.form-field.is-error .form-birth .form-select select {
+  border-color: var(--color-error);
+}
+
+/* --------------------------------------------------------------------------
    Button
    -------------------------------------------------------------------------- */
 .btn {
@@ -1009,6 +1032,7 @@ body.is-modal-open {
   font-weight: 500;
   line-height: 1;
   white-space: nowrap;
+  text-decoration: none;
   transition: background-color 0.15s, border-color 0.15s, color 0.15s;
 }
 
@@ -1063,7 +1087,7 @@ body.is-modal-open {
   min-width: 99px;
   padding: 15px 40px;
   background: #ff8296;
-  border: none;
+  border: 1px solid #ff8296;
   border-radius: 30px;
   color: #fff;
   font-size: 20px;
@@ -1076,6 +1100,38 @@ body.is-modal-open {
 .btn--submit:focus-visible {
   background: #ee6d82;
   outline: none;
+}
+
+.btn--cancel {
+  min-width: 178px;
+  padding: 15px 40px;
+  background: #fff;
+  border: 1px solid #a2a2a2;
+  border-radius: 30px;
+  color: #a2a2a2;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn--cancel:hover,
+.btn--cancel:focus-visible {
+  border-color: #888;
+  color: #888;
+  outline: none;
+}
+
+.btn--search {
+  padding: 8px 15px;
+  background: #5a371e;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  cursor: pointer;
 }
 
 .btn-order {
@@ -1180,23 +1236,159 @@ body.is-modal-open {
   outline-offset: 2px;
 }
 
+/* 공통 폼 필드 */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-field__label {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #373737;
+}
+
+.form-field__error {
+  display: none;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-error);
+}
+
+.form-field.is-error .form-field__error {
+  display: block;
+}
+
+.form-field.is-error .input-text,
+.form-field.is-error .form-select select {
+  border-color: var(--color-error);
+}
+
+.form-section {
+  margin-bottom: 50px;
+}
+
+.form-section__head {
+  margin-bottom: 35px;
+  padding: 5px 0 5px 15px;
+  border-left: 3px solid #373737;
+}
+
+.form-section__title {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #373737;
+}
+
+.form-section__desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #373737;
+}
+
+.form-section__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-radios {
+  display: flex;
+  gap: 63px;
+  align-items: center;
+}
+
+.form-birth {
+  display: flex;
+  gap: 5px;
+}
+
+.form-birth .form-select {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.form-school {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.form-school__name {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #5a371e;
+}
+
+.form-school__name:empty {
+  display: none;
+}
+
+.form-select {
+  position: relative;
+  width: 100%;
+}
+
+.form-select select {
+  width: 100%;
+  min-height: 50px;
+  padding: 15px 40px 15px 15px;
+  border: 1px solid var(--color-input-border);
+  border-radius: 10px;
+  background-color: #fff;
+  color: #373737;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.form-select select:invalid,
+.form-select select option[value=""] {
+  color: var(--color-placeholder);
+}
+
+.form-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%);
+  background: url("../images/common/arrow_down_gray.svg") center / contain no-repeat;
+  pointer-events: none;
+}
+
 .input-text {
   width: 100%;
+  min-height: 50px;
   padding: 15px;
-  padding-right: 56px;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-input-border);
   border-radius: 10px;
-  background-color: var(--color-white);
+  background-color: #fff;
   font-size: 14px;
-  color: var(--color-text);
+  font-weight: 400;
+  line-height: 20px;
+  color: #373737;
 }
 
 .input-text::placeholder {
-  color: var(--color-text-light);
+  color: var(--color-placeholder);
 }
 
 .input-text:focus {
   border-color: var(--color-primary);
+  outline: none;
 }
 
 .input-count {
@@ -2242,6 +2434,42 @@ body.is-modal-open {
     max-width: 130px;
     padding: 12px 20px;
     font-size: 16px;
+  }
+
+  /* 교육신청 정보입력 — 모바일 */
+  .apply-summary {
+    margin-bottom: 30px;
+  }
+
+  .apply-info__actions {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .btn--cancel {
+    min-width: 116px;
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+
+  .form-section {
+    margin-bottom: 40px;
+  }
+
+  .form-section__head {
+    margin-bottom: 25px;
+  }
+
+  .form-section__title {
+    font-size: 18px;
+  }
+
+  .form-section__desc {
+    font-size: 14px;
+  }
+
+  .form-radios {
+    gap: 20px;
   }
 }
 

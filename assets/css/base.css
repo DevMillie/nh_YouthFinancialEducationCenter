@@ -156,6 +156,9 @@ hr {
   --color-text: #373737;
   --color-text-muted: #666;
   --color-text-light: #999;
+  --color-placeholder: #a7a6a6;
+  --color-input-border: rgba(202, 202, 202, 0.87);
+  --color-error: #f24763;
 
   /* --------------------------------------------------------------------------
      교육 카드 컬러 팔레트 (Figma) — 단일 소스
