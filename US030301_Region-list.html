@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/images/page/simbol.png" type="image/png">
+  <title>지역 센터 교육 리스트 | NH 청소년 금융교육센터</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+</head>
+<body class="user-apply-page user-edu-list-page">
+  <div class="wrap">
+      <!-- Header -->
+      <header class="header">
+        <div class="header__inner">
+          <h1 class="logo">
+            <a href="/"><picture>
+              <source media="(max-width: 1023px)" srcset="assets/images/page/m_logo.png">
+              <img src="assets/images/page/logo.png" alt="NH 청소년금융교육센터" />
+            </picture></a>
+          </h1>
+          <button type="button" class="header__menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="headerNav">
+            <img src="assets/images/common/icon_gnb_menu.svg" alt="" class="header__menu-icon header__menu-icon--open" width="24" height="24">
+            <img src="assets/images/common/icon_gnb_close.svg" alt="" class="header__menu-icon header__menu-icon--close" width="24" height="24">
+          </button>
+
+          <nav class="gnb" id="headerNav" aria-label="주 메뉴">
+            <ul class="gnb__list">
+              <li class="gnb__item">
+                <a href="#" class="gnb__link">센터안내</a>
+                <div class="gnb__dropdown">
+                  <div class="gnb__dropdown-inner">
+                    <ul class="gnb__sub">
+                      <li><a href="#">청소년 금융교육센터 안내</a></li>
+                      <li><a href="#">홍보영상</a></li>
+                      <li><a href="#">공지사항</a></li>
+                      <li><a href="#">오시는 길</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="gnb__item is-expanded">
+                <a href="#" class="gnb__link">교육신청</a>
+                <div class="gnb__dropdown">
+                  <div class="gnb__dropdown-inner">
+                    <ul class="gnb__sub">
+                      <li><a href="#">교육 커리큘럼 소개</a></li>
+                      <li><a href="#">교육신청</a></li>
+                      <li><a href="#">교육신청 내역</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="gnb__item">
+                <a href="#" class="gnb__link">커뮤니티</a>
+                <div class="gnb__dropdown">
+                  <div class="gnb__dropdown-inner">
+                    <ul class="gnb__sub">
+                      <li><a href="#">교육참가후기</a></li>
+                      <li><a href="#">교육사진</a></li>
+                      <li><a href="#">금융교육자료실</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <div class="breadcrumb__inner">
+          <nav class="breadcrumb__nav" aria-label="현재 위치">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a href="#" class="breadcrumb__home" aria-label="홈">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
+                    <path d="M8 17V11H12V17H17V9H20L10 0L0 9H3V17H8Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="breadcrumb__item">교육 신청</li>
+              <li class="breadcrumb__item is-current" aria-current="page">서울(강남)</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="body">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <h2 class="sidebar__title">교육 신청</h2>
+          <nav aria-label="서브 메뉴">
+            <ul class="sidebar__list">
+              <li class="sidebar__item">
+                <a href="#">교육 커리큘럼 소개</a>
+              </li>
+              <li class="sidebar__item is-active">
+                <a href="#">교육 신청</a>
+              </li>
+              <li class="sidebar__item">
+                <a href="#">교육 신청 내역</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+          <div class="main__inner">
+            <section class="edu-center" aria-labelledby="eduCenterTitle">
+              <header class="sub-page-head edu-detail-head">
+                <h2 class="sub-page-head__title" id="eduCenterTitle">서울(강남)</h2>
+                <a href="#" class="edu-place-btn" data-branch-open aria-haspopup="dialog" aria-controls="branchModal">
+                  <img src="assets/images/page/PlaceSharp.svg" alt="" aria-hidden="true">
+                  오시는길
+                </a>
+              </header>
+
+              <!-- 개인교육 / 단체교육 탭 -->
+              <div class="edu-tabs">
+                <div class="edu-tabs__inner" role="tablist" aria-label="교육 구분">
+                  <button type="button" class="edu-tab is-active" role="tab" id="eduTab-personal" aria-selected="true" aria-controls="eduPanel-personal" data-tab="personal">개인교육</button>
+                  <button type="button" class="edu-tab" role="tab" id="eduTab-group" aria-selected="false" aria-controls="eduPanel-group" data-tab="group">단체교육</button>
+                </div>
+              </div>
+
+              <!-- 필터 -->
+              <div class="edu-filters">
+                <div class="edu-select">
+                  <select aria-label="프로그램 선택">
+                    <option>프로그램 전체</option>
+                    <option>상시교육</option>
+                    <option>테마교육</option>
+                    <option>N키즈</option>
+                    <option>진로교육</option>
+                  </select>
+                </div>
+                <div class="edu-select">
+                  <select aria-label="교육대상 선택">
+                    <option>교육대상 전체</option>
+                    <option>초등학생 (1-3학년)</option>
+                    <option>초등학생 (4-6학년)</option>
+                    <option>중학생</option>
+                    <option>고등학생</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 탭 패널 -->
+              <div class="edu-panels">
+                <div class="edu-panel is-active" id="eduPanel-personal" role="tabpanel" aria-labelledby="eduTab-personal">
+                  <ul class="edu-list" id="eduList-personal"></ul>
+                </div>
+                <div class="edu-panel" id="eduPanel-group" role="tabpanel" aria-labelledby="eduTab-group" hidden>
+                  <ul class="edu-list" id="eduList-group"></ul>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+
+  <!-- 지점안내 팝업 (공통) -->
+  <div class="branch-modal" id="branchModal" role="dialog" aria-modal="true" aria-labelledby="branchModalTitle" hidden>
+    <div class="branch-modal__dim" data-branch-close></div>
+    <div class="branch-modal__panel">
+      <div class="branch-modal__head">
+        <p class="branch-modal__title" id="branchModalTitle">지점안내</p>
+        <button type="button" class="branch-modal__close" data-branch-close aria-label="닫기">
+          <img src="assets/images/common/icon_closed.svg" alt="">
+        </button>
+      </div>
+      <div class="branch-modal__map">
+        <span class="branch-modal__map-text">MAP</span>
+      </div>
+      <div class="branch-modal__body">
+        <h3 class="branch-modal__region">서울(강남)</h3>
+        <div class="branch-modal__card-wrap">
+          <div class="branch-modal__card">
+            <dl class="branch-info">
+              <div class="branch-info__item">
+                <dt class="branch-info__label">주소</dt>
+                <dd class="branch-info__value">서울특별시 송파구 양재대로 72길 5, 올림픽파크센트레빌 103동 1층</dd>
+              </div>
+              <div class="branch-info__item">
+                <dt class="branch-info__label">전화</dt>
+                <dd class="branch-info__value">02-2224-8024</dd>
+              </div>
+              <div class="branch-info__item">
+                <dt class="branch-info__label">팩스</dt>
+                <dd class="branch-info__value">02-476-8095</dd>
+              </div>
+              <div class="branch-info__item">
+                <dt class="branch-info__label">이메일</dt>
+                <dd class="branch-info__value">dnwjddlRj@nonghyup.com</dd>
+              </div>
+              <div class="branch-info__item">
+                <dt class="branch-info__label">체험관구성</dt>
+                <dd class="branch-info__facilities">
+                  <span class="branch-facility"><img src="assets/images/page/icon_class.png" alt=""><span>금융교실</span></span>
+                  <span class="branch-facility"><img src="assets/images/page/icon_bank.png" alt=""><span>은행직업</span></span>
+                  <span class="branch-facility"><img src="assets/images/page/icon_save.png" alt=""><span>신비한금고</span></span>
+                  <span class="branch-facility"><img src="assets/images/page/icon_bank02.png" alt=""><span>금융체험</span></span>
+                  <span class="branch-facility"><img src="assets/images/page/icon_movie.png" alt=""><span>시네마</span></span>
+                </dd>
+              </div>
+              <div class="branch-info__item">
+                <dt class="branch-info__label">센터 운영시간</dt>
+                <dd class="branch-info__value">09:00 ~ 18:00 (월~금)</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <img src="assets/images/page/footer_logo.png" alt="" class="footer__logo">
+      </div>
+      <nav class="footer__links">
+        <a href="#">금융소비자보호</a>
+        <a href="#" class="bold-link">개인정보처리방침</a>
+      </nav>
+      <p class="footer__address">서울특별시 중구 통일로 120 NH농협은행 본점</p>
+      <p class="footer__copy">Copyright 2026 By NHBank All Rights Reserved.</p>
+      <div class="footer__selects">
+        <select>
+          <option>계열사 사이트</option>
+        </select>
+        <select>
+          <option>관련 사이트</option>
+        </select>
+        <img src="assets/images/page/footer_mark.png" alt="" class="footer__badge">
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    /**
+     * 지역 센터 교육 리스트 (US030301)
+     * - 교육 항목 데이터. color 값은 주 컬러별 케이스 클래스(edu-card--{color})로 매핑된다.
+     * - status: 'apply'(신청) | 'wait'(대기신청) | 'closed'(마감)
+     */
+    (function ($) {
+      'use strict';
+
+      // 개인교육 탭 교육 목록
+      var EDU_LIST_PERSONAL = [
+        { type: '상시교육', color: 'green',   title: '센터별 연중 상시 운영되는 기본 금융교육',        date: '2026.04.07 오후 2시', target: '초등학생 (1-3학년)', form: '대면(센터) 교육', status: 'apply' },
+        { type: '테마교육', color: 'teal',    title: '나만의 안전한 보물 창고 : 은행 속 돈의 흐름 알기 두줄이면 어떻게 나올까요 알아맞춰보세용', date: '2026.04.12 오후 3시', target: '초등학생 (4-6학년)', form: '대면(센터) 교육', status: 'apply' },
+        { type: 'N키즈',   color: 'blue',    title: '용돈 기입장으로 배우는 똑똑한 소비 습관',          date: '2026.04.18 오전 10시', target: '초등학생 (1-3학년)', form: '대면(센터) 교육', status: 'wait' },
+        { type: '진로교육', color: 'yellow',  title: '미래를 디자인하는 금융 직업 탐험대',              date: '2026.04.25 오후 2시', target: '중학생',          form: '대면(센터) 교육', status: 'apply' },
+        { type: 'N썸머',   color: 'orange',  title: '여름방학 특별 금융 캠프 : 돈의 여행',             date: '2026.05.02 오후 1시', target: '초등학생 (4-6학년)', form: '대면(센터) 교육', status: 'apply' },
+        { type: 'N주니어', color: 'purple',  title: '청소년 신용·대출의 모든 것',                    date: '2026.05.09 오후 4시', target: '고등학생',        form: '대면(센터) 교육', status: 'apply' },
+        { type: '기타',    color: 'pink',    title: '게임으로 익히는 금융 상식 챌린지',               date: '2026.05.16 오후 2시', target: '중학생',          form: '대면(센터) 교육', status: 'apply' },
+        { type: '교육 추가 3', color: 'skyblue', title: '은행 창구 직업 체험 프로그램',                  date: '2026.05.23 오전 11시', target: '초등학생 (1-3학년)', form: '대면(센터) 교육', status: 'closed' }
+      ];
+
+      // 단체교육 탭 교육 목록 (학교·기관 단위 신청)
+      var EDU_LIST_GROUP = [
+        { type: '교육 추가 2', color: 'navy',    title: '학급 단위 금융 진로 특강 (찾아가는 교육)',        date: '2026.04.10 오전 9시', target: '학급 단위 (30명 내외)', form: '방문(학교) 교육', status: 'apply' },
+        { type: '교육 추가 4', color: 'lime',    title: '단체 ESG·환경 금융 워크숍',                    date: '2026.04.17 오후 2시', target: '동아리·단체 (20명↑)', form: '방문(기관) 교육', status: 'apply' },
+        { type: '교육 추가 5', color: 'brown',   title: '우리 화폐의 역사 단체 탐방 프로그램',             date: '2026.04.24 오전 10시', target: '학급 단위 (40명 내외)', form: '대면(센터) 교육', status: 'wait' },
+        { type: '교육 추가 1', color: 'red',     title: '기관 연계 금융 사기 예방 단체 교육',             date: '2026.05.08 오후 1시', target: '청소년 기관 단체',    form: '방문(기관) 교육', status: 'apply' },
+        { type: '교육 추가 6', color: 'coral',   title: '단체 대상 디지털 금융 안전 캠페인',              date: '2026.05.15 오후 3시', target: '학급 단위 (30명 내외)', form: '방문(학교) 교육', status: 'apply' },
+        { type: '교육 추가 7', color: 'olive',   title: '단체 금융 진로 체험의 날',                     date: '2026.05.22 오전 9시', target: '동아리·단체 (25명↑)', form: '대면(센터) 교육', status: 'apply' },
+        { type: 'N윈터',   color: 'gray',    title: '겨울방학 단체 금융 집중 캠프',                  date: '2026.05.29 오후 2시', target: '단체 (50명 내외)',   form: '방문(기관) 교육', status: 'closed' }
+      ];
+
+      // 메타 항목 아이콘 (교육일정 / 교육대상 / 교육형태)
+      var ICON_DATE = '<img src="assets/images/page/DateRangeSharp.svg" alt="" aria-hidden="true">';
+      var ICON_TARGET = '<img src="assets/images/page/PersonSearchSharp.svg" alt="" aria-hidden="true">';
+      var ICON_FORM = '<img src="assets/images/page/CategorySharp.svg" alt="" aria-hidden="true">';
+
+      // 상태별 버튼 라벨/클래스
+      var STATUS = {
+        apply:  { label: '신청',   cls: '' },
+        wait:   { label: '대기신청', cls: ' edu-card__btn--wait' },
+        closed: { label: '마감',   cls: '' }
+      };
+
+      // 단일 교육 카드 마크업 생성
+      function buildCard(item) {
+        var st = STATUS[item.status] || STATUS.apply;
+        var closedCls = item.status === 'closed' ? ' is-closed' : '';
+        return '' +
+          '<li class="edu-card edu-card--' + item.color + closedCls + '">' +
+            '<div class="edu-card__head">' +
+              '<span class="edu-card__badge">' + item.type + '</span>' +
+              '<p class="edu-card__title">' + item.title + '</p>' +
+            '</div>' +
+            '<div class="edu-card__info">' +
+              '<dl class="edu-card__meta">' +
+                '<div class="edu-card__meta-row">' +
+                  '<dt class="edu-card__meta-label">' + ICON_DATE + '교육일정</dt>' +
+                  '<dd class="edu-card__meta-value">' + item.date + '</dd>' +
+                '</div>' +
+                '<div class="edu-card__meta-row">' +
+                  '<dt class="edu-card__meta-label">' + ICON_TARGET + '교육대상</dt>' +
+                  '<dd class="edu-card__meta-value">' + item.target + '</dd>' +
+                '</div>' +
+                '<div class="edu-card__meta-row">' +
+                  '<dt class="edu-card__meta-label">' + ICON_FORM + '교육형태</dt>' +
+                  '<dd class="edu-card__meta-value">' + item.form + '</dd>' +
+                '</div>' +
+              '</dl>' +
+              '<button type="button" class="edu-card__btn' + st.cls + '">' + st.label + '</button>' +
+            '</div>' +
+          '</li>';
+      }
+
+      // 개인/단체 탭에 각각의 교육 리스트를 렌더링
+      function renderList() {
+        $('#eduList-personal').html(EDU_LIST_PERSONAL.map(buildCard).join(''));
+        $('#eduList-group').html(EDU_LIST_GROUP.map(buildCard).join(''));
+      }
+
+      // 탭 전환 처리
+      function bindTabs() {
+        $('.edu-tab').on('click', function () {
+          var $tab = $(this);
+          if ($tab.hasClass('is-active')) return;
+
+          $('.edu-tab').removeClass('is-active').attr('aria-selected', 'false');
+          $tab.addClass('is-active').attr('aria-selected', 'true');
+
+          var target = $tab.data('tab');
+          $('.edu-panel').prop('hidden', true).removeClass('is-active');
+          $('#eduPanel-' + target).prop('hidden', false).addClass('is-active');
+        });
+      }
+
+      // 지점안내 팝업(공통) — 열기/닫기. 여러 지역 센터에서 동일 마크업으로 재사용한다.
+      function bindBranchModal() {
+        var $modal = $('#branchModal');
+        if (!$modal.length) return;
+
+        function openModal(e) {
+          if (e) e.preventDefault();
+          $modal.prop('hidden', false).addClass('is-open');
+          $('body').addClass('is-modal-open');
+        }
+        function closeModal() {
+          $modal.prop('hidden', true).removeClass('is-open');
+          $('body').removeClass('is-modal-open');
+        }
+
+        $('[data-branch-open]').on('click', openModal);
+        $modal.on('click', '[data-branch-close]', closeModal);
+        $(document).on('keydown', function (e) {
+          if (e.key === 'Escape' && $modal.hasClass('is-open')) closeModal();
+        });
+      }
+
+      $(function () {
+        renderList();
+        bindTabs();
+        bindBranchModal();
+      });
+    })(jQuery);
+  </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/images/page/simbol.png" type="image/png">
+  <title>NH 청소년 금융교육센터</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="logo">
+        <a href="/"><picture>
+          <source media="(max-width: 1023px)" srcset="assets/images/page/m_logo.png">
+          <img src="assets/images/page/logo.png" alt="NH 청소년금융교육센터" />
+        </picture></a>
+      </h1>
+      <button type="button" class="header__menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="headerNav">
+        <img src="assets/images/common/icon_gnb_menu.svg" alt="" class="header__menu-icon header__menu-icon--open" width="24" height="24">
+        <img src="assets/images/common/icon_gnb_close.svg" alt="" class="header__menu-icon header__menu-icon--close" width="24" height="24">
+      </button>
+
+      <nav class="gnb" id="headerNav" aria-label="주 메뉴">
+        <ul class="gnb__list">
+          <li class="gnb__item is-expanded">
+            <a href="#" class="gnb__link">센터안내</a>
+            <div class="gnb__dropdown">
+              <div class="gnb__dropdown-inner">
+                <ul class="gnb__sub">
+                  <li><a href="#">청소년 금융교육센터 안내</a></li>
+                  <li><a href="#">홍보영상</a></li>
+                  <li><a href="#">공지사항</a></li>
+                  <li><a href="#">오시는 길</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="gnb__item">
+            <a href="#" class="gnb__link">교육신청</a>
+            <div class="gnb__dropdown">
+              <div class="gnb__dropdown-inner">
+                <ul class="gnb__sub">
+                  <li><a href="#">교육 커리큘럼 소개</a></li>
+                  <li><a href="#">교육신청</a></li>
+                  <li><a href="#">교육신청 내역</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="gnb__item">
+            <a href="#" class="gnb__link">커뮤니티</a>
+            <div class="gnb__dropdown">
+              <div class="gnb__dropdown-inner">
+                <ul class="gnb__sub">
+                  <li><a href="#">교육참가후기</a></li>
+                  <li><a href="#">교육사진</a></li>
+                  <li><a href="#">금융교육자료실</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <!-- Main visual -->
+    <section class="main-visual">
+      <div class="swiper main-visual-swiper">
+        <div class="swiper-wrapper" id="mainVisualWrapper"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="schedule section">
+      <div class="section__inner">
+        <h2 class="section__title"><span>교육일정</span></h2>
+        <div class="region-tabs">
+          <button type="button" class="region-tabs__arrow region-tabs__arrow--prev" id="regionPrev"></button>
+          <div class="swiper region-tabs-swiper"><div class="swiper-wrapper" id="regionTabsWrapper"></div></div>
+          <button type="button" class="region-tabs__arrow region-tabs__arrow--next" id="regionNext"></button>
+        </div>
+        <div class="schedule__content">
+          <div class="calendar" id="calendar">
+            <div class="calendar__header">
+              <h3 class="calendar__month" id="calendarMonth"></h3>
+              <div class="calendar__nav">
+                <button type="button" id="calendarPrev"></button>
+                <button type="button" id="calendarNext" class="is-next"></button>
+              </div>
+            </div>
+            <div class="calendar__weekdays"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span class="sun">일</span></div>
+            <div class="calendar__grid" id="calendarGrid"></div>
+          </div>
+          <div class="education-panel">
+            <div class="education-panel__empty" id="educationEmpty">
+              <article class="education-card education-card--empty">
+                <div class="education-card__tags">
+                  <span class="tag tag--gray">서울(본부)</span>
+                </div>
+                <p class="education-panel__empty-title">해당 지역의 교육일정이 없습니다.</p>
+                <ul class="meta-list education-card__meta">
+                  <li><span class="label"><img src="assets/images/page/DateRangeSharp.svg" alt="" class="meta-icon" width="26" height="26">교육일정</span><em>-</em></li>
+                  <li><span class="label"><img src="assets/images/page/PersonSearchSharp.svg" alt="" class="meta-icon" width="26" height="26">교육대상</span><em>-</em></li>
+                  <li><span class="label"><img src="assets/images/page/CategorySharp.svg" alt="" class="meta-icon" width="26" height="26">교육형태</span><em>-</em></li>
+                </ul>
+                <button type="button" class="btn-apply" disabled>신청하기</button>
+              </article>
+            </div>
+            <div class="education-panel__cards is-hidden" id="educationCards">
+              <div class="education-panel__swiper-wrap">
+                <button type="button" class="education-panel__arrow education-panel__arrow--prev" id="educationPrev" aria-label="이전 교육일정"></button>
+                <div class="swiper education-card-swiper">
+                  <div class="swiper-wrapper" id="educationCardWrapper"></div>
+                  <div class="swiper-pagination"></div>
+                </div>
+                <button type="button" class="education-panel__arrow education-panel__arrow--next" id="educationNext" aria-label="다음 교육일정"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs section">
+      <div class="section__inner">
+        <h2 class="section__title"><span>교육 프로그램</span></h2>
+        <p class="section__subtitle">맞춤형 교육 프로그램을 만나보세요</p>
+        <div class="programs__wrap">
+          <button type="button" class="programs__arrow programs__arrow--prev" id="programPrev"></button>
+          <div class="swiper program-swiper"><div class="swiper-wrapper" id="programWrapper"></div></div>
+          <button type="button" class="programs__arrow programs__arrow--next" id="programNext"></button>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <img src="assets/images/page/footer_logo.png" alt="" class="footer__logo">        
+      </div>
+      <nav class="footer__links">
+        <a href="#">금융소비자보호</a>
+        <a href="#" class="bold-link">개인정보처리방침</a>
+      </nav>
+      <p class="footer__address">서울특별시 중구 통일로 120 NH농협은행 본점</p>
+      <p class="footer__copy">Copyright 2026 By NHBank All Rights Reserved.</p>
+      <div class="footer__selects">
+        <select>
+          <option>계열사 사이트</option>
+        </select>
+        <select>
+          <option>관련 사이트</option>
+        </select>
+        <img src="assets/images/page/footer_mark.png" alt="" class="footer__badge">
+      </div>      
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

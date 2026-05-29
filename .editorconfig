@@ -1,0 +1,11 @@
+# 모든 텍스트 파일 UTF-8 (BOM 없음) 고정
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{html,css,js,json,svg,md}]
+charset = utf-8

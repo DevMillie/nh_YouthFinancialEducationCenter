@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<title>농협청소년금융교육센터 사용자 IA</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<script src="./js/jquery-3.7.1.min.js"></script>
+	<script src="./js/jquery-ui.min.js"></script>
+	<style src="./fonts/pretendard.css"></style>
+	<style type="text/css">
+		body,
+		input,
+		select,
+		textarea,
+		button {
+			font-family: 'pretendard', 'Malgun Gothic', '맑은 고딕', sans-serif;
+			color: #000;
+			font-size: 14px;
+			line-height: 1.6;
+			font-weight: 500;
+		}
+
+		pre {
+			font-family: 'pretendard', 'Malgun Gothic', '맑은 고딕', sans-serif;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			word-break: break-all;
+		}
+
+		textarea {
+			resize: none;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: inherit;
+			font-weight: normal;
+		}
+
+		ul,
+		ol {
+			list-style: none;
+		}
+
+		blockquote,
+		q {
+			quotes: none;
+		}
+
+		blockquote:before,
+		blockquote:after,
+		q:before,
+		q:after {
+			content: '';
+			content: none;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+		a,
+		a:hover {
+			color: #212121;
+			text-decoration: none;
+			cursor: pointer;
+			-webkit-transition: all 200ms ease-in-out;
+			-moz-transition: all 200ms ease-in-out;
+			-o-transition: all 200ms ease-in-out;
+			transition: all 200ms ease-in-out
+		}
+
+		*,
+		*:after,
+		*:before {
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+
+		caption,
+		legend,
+		.blind,
+		.hidden,
+		h2 {
+			visibility: hidden;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 0;
+			font-size: 0;
+			line-height: 0;
+		}
+
+		hr {
+			display: none;
+		}
+
+		.wrap {
+			margin: 0 auto;
+			padding: 30px;
+		}
+
+		h1 {
+			margin-bottom: 20px;
+			font-weight: 600;
+		}
+
+		/* tab */
+		.tab ul {
+			margin-bottom: 20px;
+		}
+
+		.tab ul:after {
+			display: block;
+			clear: both;
+			content: ''
+		}
+
+		.tab li {
+			float: left;
+			list-style: none;
+			min-width: 120px;
+		}
+
+		.tab li a {
+			display: block;
+			background: #2b2171;
+			padding: 7px 20px;
+			border-right: 1px solid #d9e0e7;
+			border-bottom: 1px solid #d9e0e7;
+			color: #fff;
+			text-align: center;
+			font-weight: bold;
+			cursor: text;
+		}
+
+		.tab li.ui-tabs-active a {
+			background: #0068FF;
+		}
+
+		.noticebox {
+			margin: 20px 0;
+			padding: 20px;
+			background: #f6f6f6;
+			border: 1px solid #e1e1e1;
+		}
+
+		/* tbl contents */
+		.tbl {
+			width: 100%;
+			border: 0;
+			border-top: 2px solid #555;
+			border-bottom: 1px solid #e1e1e1;
+			font-size: 13px;
+			border-collapse: collapse;
+			table-layout: fixed;
+			margin-bottom: 50px;
+		}
+
+		.tbl thead th {
+			background: #f6f6f6;
+		}
+
+		.tbl thead th:last-child {
+			border-right: 0;
+		}
+
+		.tbl thead th {
+			background: #f0f0f0;
+			border: 1px solid #ccc;
+		}
+
+		.tbl th {
+			color: #444;
+			border: 1px solid #e1e1e1;
+			background: #f6f6f6;
+		}
+
+		.tbl tr:first-child th {
+			border-top: none;
+		}
+
+		.tbl th:first-child {
+			border-left: none
+		}
+
+		.tbl th,
+		.tbl td {
+			padding: 8px 5px;
+			text-align: center;
+		}
+
+		.tbl tbody tr:hover td {
+			background: #E7EFFF;
+		}
+
+		.tbl td {
+			border: 0;
+			border-bottom: 1px solid #e1e1e1;
+			border-left: 1px solid #e1e1e1;
+		}
+
+		.tbl .cate th,
+		.tbl .cate td {
+			border-top: 2px solid #555 !important;
+		}
+
+		.tbl [class*="depth"] {
+			text-align: left;
+		}
+
+		.tbl .depth1 {
+			vertical-align: middle;
+		}
+
+		.link {
+			text-decoration: underline;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="wrap">
+		<h1>농협청소년금융교육센터 사용자 IA</h1>
+		<div class="noticebox">
+			<ul>
+				<li><strong>구분 : </strong>ⓟ - POPUP</li>
+			</ul>
+		</div>
+
+		<div class="tab">
+			<ul>
+				<li><a href="#tab1">사용자 페이지 Ver 1.0</a></li>
+			</ul>
+			<div id="tab1">
+				<table class="tbl">
+					<caption>페이지 리스트</caption>
+					<colgroup>
+						<col style="width:3%">
+						<col style="width:5%">
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col style="width:5%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">번호</th>
+							<th scope="col">구분</th>
+							<th scope="col">1depth</th>
+							<th scope="col">2depth</th>
+							<th scope="col">3depth</th>
+							<th scope="col">4depth</th>
+							<th scope="col">파일명(바로가기)</th>
+							<th scope="col">완료</th>
+							<th scope="col">비고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- 메인 -->
+						<tr class="cate">
+							<th></th>
+							<td>페이지</td>
+							<td class="depth1" rowspan="1">메인</td>
+							<td class="depth2">메인화면</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="link"><a href="index.html" target="_blank">index</a></td>
+							<td class="date">O</td>
+							<td class="etc"></td>
+						</tr>
+						<!-- 센터안내 -->
+						<tr class="cate">
+							<th></th>
+							<td>페이지</td>
+							<td class="depth1" rowspan="7">센터안내</td>
+							<td class="depth2">청소년 금융교육센터 소개</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="link">US020101</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2">홍보영상</td>
+							<td class="depth3">리스트</td>
+							<td class="depth4"></td>
+							<td class="link">US020201</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3">상세</td>
+							<td class="depth4"></td>
+							<td class="link">US020202</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2">공지사항</td>
+							<td class="depth3">리스트</td>
+							<td class="depth4"></td>
+							<td class="link">US020301</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3">상세</td>
+							<td class="depth4"></td>
+							<td class="link">US020302</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2">오시는길</td>
+							<td class="depth3">리스트</td>
+							<td class="depth4"></td>
+							<td class="link"><a href="US020401_visit-list.html" target="_blank">US020401</a></td>
+							<td class="date">O</td>
+							<td class="etc">센터 카드 클릭 시 지점안내 팝업(US020402)</td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>팝업</td>
+							<td class="depth2"></td>
+							<td class="depth3">상세</td>
+							<td class="depth4"></td>
+							<td class="link"><a href="US020401_visit-list.html" target="_blank">US020402</a></td>
+							<td class="date">O</td>
+							<td class="etc">오시는길/지역센터 공통 팝업 (지점안내)</td>
+						</tr>
+						<!-- 교육신청 -->
+						<tr class="cate">
+							<th></th>
+							<td>페이지</td>
+							<td class="depth1" rowspan="13">교육신청</td>
+							<td class="depth2">교육커리큘럼 소개</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="link">US030101</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2">교육신청지역선택</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="link"><a href="US030201_Select-Region.html" target="_blank">US030201</a></td>
+							<td class="date">O</td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>탭</td>
+							<td class="depth2"></td>
+							<td class="depth3">개인교육</td>
+							<td class="depth4"></td>
+							<td class="link"><a href="US030301_Region-list.html" target="_blank">US030301</a></td>
+							<td class="date">O</td>
+							<td class="etc">단체교육 화면 내 탭</td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3"></td>
+							<td class="depth4">신청약관동의</td>
+							<td class="link">US030302</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3"></td>
+							<td class="depth4">교육신청정보 입력</td>
+							<td class="link">US030303</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>팝업</td>
+							<td class="depth2"></td>
+							<td class="depth3"></td>
+							<td class="depth4">학교 검색</td>
+							<td class="link">CO010101</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>탭</td>
+							<td class="depth2"></td>
+							<td class="depth3">단체교육</td>
+							<td class="depth4"></td>
+							<td class="link"><a href="US030301_Region-list.html" target="_blank">US030301</a></td>
+							<td class="date">O</td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3"></td>
+							<td class="depth4">신청약관동의</td>
+							<td class="link">US030302</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3"></td>
+							<td class="depth4">교육신청정보 입력</td>
+							<td class="link">US030303</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>팝업</td>
+							<td class="depth2"></td>
+							<td class="depth3"></td>
+							<td class="depth4">학교 검색</td>
+							<td class="link">CO010101</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2">교육신청내역 정보입력</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="link">US030401</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3">교육신청내역</td>
+							<td class="depth4"></td>
+							<td class="link">US030402</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3"></td>
+							<td class="depth4">후기작성</td>
+							<td class="link">US030403</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<!-- 커뮤니티 -->
+						<tr class="cate">
+							<th></th>
+							<td>페이지</td>
+							<td class="depth1" rowspan="6">커뮤니티</td>
+							<td class="depth2">교육참가후기</td>
+							<td class="depth3">리스트</td>
+							<td class="depth4"></td>
+							<td class="link">US040101</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3">상세</td>
+							<td class="depth4"></td>
+							<td class="link">US040102</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2">교육사진</td>
+							<td class="depth3">리스트</td>
+							<td class="depth4"></td>
+							<td class="link">US040201</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3">상세</td>
+							<td class="depth4"></td>
+							<td class="link">US040202</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2">금융교육자료실</td>
+							<td class="depth3">리스트</td>
+							<td class="depth4"></td>
+							<td class="link">US040301</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>페이지</td>
+							<td class="depth2"></td>
+							<td class="depth3">상세</td>
+							<td class="depth4"></td>
+							<td class="link">US040302</td>
+							<td class="date"></td>
+							<td class="etc"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div><!-- //wrap -->
+		<script>
+			// use >> <a href=# onclick=pop('./x.html','','767','1000','y');>[열기]</a>
+			var pop = function (html_uri, pop_up_name, option_width, option_height, option_selection) {
+				var popupObject = null;
+				var option = "width=" + option_width + ","
+				option += "height=" + option_height + ","
+				option += "left=" + (screen.width - option_width) / 2 + ","
+				option += "top=" + (screen.height - option_height) / 2 + ",";
+
+
+				if (option_selection == 'yes' || option_selection == 'y') {
+					option += 'fullscreen=no, location=no, scrollbars=yes, menubar=no, toolbar=no, titlebar=no, directories=no, resizable=yes';
+				} else if (option_selection == 'no' || option_selection == 'n') {
+					option += 'fullscreen=no, location=no, scrollbars=no, menubar=no, toolbar=no, titlebar=no, directories=no, resizable=no';
+				} else {
+					option += option_selection;
+				}
+				popupObject = window.open(html_uri, pop_up_name, option);
+			}
+			function setRowNumbers() {
+				document.querySelectorAll('.tbl tbody tr').forEach(function (row, index) {
+					var numCell = row.querySelector('th');
+					if (numCell) numCell.textContent = index + 1;
+				});
+			}
+			setRowNumbers();
+			if (window.jQuery && jQuery.fn.tabs) jQuery('.tab').tabs();
+		</script>
+</body>
+
+</html>

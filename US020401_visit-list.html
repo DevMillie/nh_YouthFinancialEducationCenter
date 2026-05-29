@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/images/page/simbol.png" type="image/png">
+  <title>오시는길 | NH 청소년 금융교육센터</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+</head>
+<body class="user-apply-page user-visit-page">
+  <div class="wrap">
+      <!-- Header -->
+      <header class="header">
+        <div class="header__inner">
+          <h1 class="logo">
+            <a href="/"><picture>
+              <source media="(max-width: 1023px)" srcset="assets/images/page/m_logo.png">
+              <img src="assets/images/page/logo.png" alt="NH 청소년금융교육센터" />
+            </picture></a>
+          </h1>
+          <button type="button" class="header__menu-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="headerNav">
+            <img src="assets/images/common/icon_gnb_menu.svg" alt="" class="header__menu-icon header__menu-icon--open" width="24" height="24">
+            <img src="assets/images/common/icon_gnb_close.svg" alt="" class="header__menu-icon header__menu-icon--close" width="24" height="24">
+          </button>
+
+          <nav class="gnb" id="headerNav" aria-label="주 메뉴">
+            <ul class="gnb__list">
+              <li class="gnb__item is-expanded">
+                <a href="#" class="gnb__link">센터안내</a>
+                <div class="gnb__dropdown">
+                  <div class="gnb__dropdown-inner">
+                    <ul class="gnb__sub">
+                      <li><a href="#">청소년 금융교육센터 안내</a></li>
+                      <li><a href="#">홍보영상</a></li>
+                      <li><a href="#">공지사항</a></li>
+                      <li><a href="US020401_visit-list.html">오시는 길</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="gnb__item">
+                <a href="#" class="gnb__link">교육신청</a>
+                <div class="gnb__dropdown">
+                  <div class="gnb__dropdown-inner">
+                    <ul class="gnb__sub">
+                      <li><a href="#">교육 커리큘럼 소개</a></li>
+                      <li><a href="#">교육신청</a></li>
+                      <li><a href="#">교육신청 내역</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="gnb__item">
+                <a href="#" class="gnb__link">커뮤니티</a>
+                <div class="gnb__dropdown">
+                  <div class="gnb__dropdown-inner">
+                    <ul class="gnb__sub">
+                      <li><a href="#">교육참가후기</a></li>
+                      <li><a href="#">교육사진</a></li>
+                      <li><a href="#">금융교육자료실</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <div class="breadcrumb__inner">
+          <nav class="breadcrumb__nav" aria-label="현재 위치">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a href="#" class="breadcrumb__home" aria-label="홈">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
+                    <path d="M8 17V11H12V17H17V9H20L10 0L0 9H3V17H8Z" fill="currentColor"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="breadcrumb__item">센터안내</li>
+              <li class="breadcrumb__item is-current" aria-current="page">오시는길</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="body">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <h2 class="sidebar__title">센터안내</h2>
+          <nav aria-label="서브 메뉴">
+            <ul class="sidebar__list">
+              <li class="sidebar__item">
+                <a href="#" class="long_word">청소년 금융교육센터 소개</a>
+              </li>
+              <li class="sidebar__item">
+                <a href="#">홍보영상</a>
+              </li>
+              <li class="sidebar__item">
+                <a href="#">공지사항</a>
+              </li>
+              <li class="sidebar__item is-active">
+                <a href="US020401_visit-list.html">오시는길</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+          <div class="main__inner">
+            <section class="visit-center" aria-labelledby="visitTitle">
+              <header class="sub-page-head">
+                <h2 class="sub-page-head__title" id="visitTitle">오시는길</h2>
+              </header>
+
+              <ul class="visit-list" id="visitList"></ul>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+
+  <!-- 지점안내 팝업 (공통) -->
+  <div class="branch-modal" id="branchModal" role="dialog" aria-modal="true" aria-labelledby="branchModalTitle" hidden>
+    <div class="branch-modal__dim" data-branch-close></div>
+    <div class="branch-modal__panel">
+      <div class="branch-modal__head">
+        <p class="branch-modal__title" id="branchModalTitle">지점안내</p>
+        <button type="button" class="branch-modal__close" data-branch-close aria-label="닫기">
+          <img src="assets/images/common/icon_closed.svg" alt="">
+        </button>
+      </div>
+      <div class="branch-modal__map">
+        <span class="branch-modal__map-text">MAP</span>
+      </div>
+      <div class="branch-modal__body">
+        <h3 class="branch-modal__region" id="branchRegion">서울(강남)</h3>
+        <div class="branch-modal__card-wrap">
+          <div class="branch-modal__card">
+            <dl class="branch-info">
+              <div class="branch-info__item">
+                <dt class="branch-info__label">주소</dt>
+                <dd class="branch-info__value" id="branchAddr">서울특별시 송파구 양재대로 72길 5, 올림픽파크센트레빌 103동 1층</dd>
+              </div>
+              <div class="branch-info__item">
+                <dt class="branch-info__label">전화</dt>
+                <dd class="branch-info__value" id="branchPhone">02-2224-8024</dd>
+              </div>
+              <div class="branch-info__item">
+                <dt class="branch-info__label">팩스</dt>
+                <dd class="branch-info__value">02-476-8095</dd>
+              </div>
+              <div class="branch-info__item">
+                <dt class="branch-info__label">이메일</dt>
+                <dd class="branch-info__value">dnwjddlRj@nonghyup.com</dd>
+              </div>
+              <div class="branch-info__item">
+                <dt class="branch-info__label">체험관구성</dt>
+                <dd class="branch-info__facilities" id="branchFacilities">
+                  <span class="branch-facility"><img src="assets/images/page/icon_class.png" alt=""><span>금융교실</span></span>
+                  <span class="branch-facility"><img src="assets/images/page/icon_bank.png" alt=""><span>은행직업</span></span>
+                  <span class="branch-facility"><img src="assets/images/page/icon_save.png" alt=""><span>신비한금고</span></span>
+                  <span class="branch-facility"><img src="assets/images/page/icon_bank02.png" alt=""><span>금융체험</span></span>
+                  <span class="branch-facility"><img src="assets/images/page/icon_movie.png" alt=""><span>시네마</span></span>
+                </dd>
+              </div>
+              <div class="branch-info__item">
+                <dt class="branch-info__label">센터 운영시간</dt>
+                <dd class="branch-info__value">09:00 ~ 18:00 (월~금)</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <img src="assets/images/page/footer_logo.png" alt="" class="footer__logo">
+      </div>
+      <nav class="footer__links">
+        <a href="#">금융소비자보호</a>
+        <a href="#" class="bold-link">개인정보처리방침</a>
+      </nav>
+      <p class="footer__address">서울특별시 중구 통일로 120 NH농협은행 본점</p>
+      <p class="footer__copy">Copyright 2026 By NHBank All Rights Reserved.</p>
+      <div class="footer__selects">
+        <select>
+          <option>계열사 사이트</option>
+        </select>
+        <select>
+          <option>관련 사이트</option>
+        </select>
+        <img src="assets/images/page/footer_mark.png" alt="" class="footer__badge">
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    /**
+     * 오시는길 리스트 (US020401)
+     * - 전국 센터 데이터. 카드를 누르면 공통 지점안내 팝업(branchModal)이 해당 센터 정보로 채워져 열린다.
+     * - untact: true 인 센터(서울 본부)는 주소 대신 '비대면 진행' 배지를 표시한다.
+     */
+    (function ($) {
+      'use strict';
+
+      // 체험관 구성 아이콘/라벨 매핑
+      var FACILITY = {
+        'class':  { img: 'icon_class.png',  label: '금융교실' },
+        'bank':   { img: 'icon_bank.png',   label: '은행직업' },
+        'save':   { img: 'icon_save.png',   label: '신비한금고' },
+        'bank02': { img: 'icon_bank02.png', label: '금융체험' },
+        'movie':  { img: 'icon_movie.png',  label: '시네마' }
+      };
+
+      // 전국 센터 목록 (운영 시 서버 데이터로 교체)
+      var CENTERS = [
+        { region: '서울(본부)', untact: true,  phone: '02-2080-7234', facilities: [] },
+        { region: '서울(강남)', addr: ['서울특별시 송파구 양재대로 72길 5,', '올림픽파크센트레빌 103동 1층'], phone: '02-2224-8024', facilities: ['class', 'bank', 'save', 'bank02', 'movie'] },
+        { region: '강원', addr: ['강원특별자치도 중앙로 37,', 'NH농협은행 춘천시지부 2층'], phone: '033-258-8225', facilities: ['class', 'bank', 'save'] },
+        { region: '경기', addr: ['경기도 수원시 팔달구 효원로 279,', 'NH농협은행 경기본부 지하 1층'], phone: '031-220-8738', facilities: ['class', 'bank', 'save'] },
+        { region: '경남', addr: ['경상남도 창원시 성산구 상남로 63,', 'NH농협은행 창원시지부 5층'], phone: '055-268-1687', facilities: ['class', 'bank', 'save', 'bank02'] },
+        { region: '경북', addr: ['경상북도 안동시 풍천면 도청대로 333,', 'NH농협은행 경북영업부 1층'], phone: '054-851-5523', facilities: ['class', 'bank', 'bank02'] },
+        { region: '광주', addr: ['광주광역시 광산구 무진대로 285,', 'NH농협은행 광주영업부 2층'], phone: '062-603-6563', facilities: ['class', 'bank', 'bank02'] },
+        { region: '대구', addr: ['대구광역시 북구 신암로 67,', 'NH농협은행 대구영업부 2층'], phone: '053-940-6364', facilities: ['class', 'bank', 'bank02'] },
+        { region: '대전', addr: ['대전광역시 중구 중앙로 113,', 'NH농협은행 대전영업부 2층'], phone: '042-220-0928', facilities: ['class', 'bank', 'bank02'] },
+        { region: '부산', addr: ['부산광역시 서구 구덕로 225,', '동아대 부민캠퍼스 국제관 지하1층'], phone: '051-606-8156', facilities: ['class', 'bank', 'save', 'bank02'] },
+        { region: '세종', addr: ['세종특별자치시 한누리대로486,', 'NH농협은행 NH금융PLUS 세종영업부 2층'], phone: '044-300-0175', facilities: ['class', 'bank', 'bank02'] },
+        { region: '울산', addr: ['울산광역시 남구 중앙로 206,', 'NH농협은행 울산영업부 2층'], phone: '052-226-4548', facilities: ['class', 'bank', 'bank02'] },
+        { region: '전북', addr: ['전북특별자치도 전주시 완산구 우전로 290,', 'NH농협은행 전북영업부 4층'], phone: '063-240-3247', facilities: ['class', 'bank', 'save', 'bank02'] },
+        { region: '제주', addr: ['제주특별자치도 제주시 오현길75,', 'NH농협은행 제주중앙지점 2층'], phone: '064-720-1333', facilities: ['class', 'bank', 'bank02'] },
+        { region: '충남', addr: ['충청남도 홍성군 홍북읍 충남대로 64,', 'NH농협은행 충남영업부 3층'], phone: '041-339-5530', facilities: ['class', 'bank', 'bank02'] },
+        { region: '충북', addr: ['충청북도 청주시 서원구 구룡산로 23,', 'NH농협은행 충북영업부 4층'], phone: '043-229-1554', facilities: ['class', 'bank', 'bank02'] },
+        { region: '전남', addr: ['전라남도 무안군 삼향읍 후광대로 264,', 'NH농협은행 전남영업부 1층'], phone: '061-289-7332', facilities: ['class', 'bank', 'bank02'] }
+      ];
+
+      // 카드 안 체험관 아이콘(라벨 없음) 마크업
+      function facilityIcons(keys) {
+        return (keys || []).map(function (k) {
+          var f = FACILITY[k];
+          return f ? '<img src="assets/images/page/' + f.img + '" alt="' + f.label + '">' : '';
+        }).join('');
+      }
+
+      // 단일 센터 카드 마크업 생성
+      function buildCard(center, idx) {
+        var body;
+        if (center.untact) {
+          body = '' +
+            '<div class="visit-card__body">' +
+              '<span class="visit-card__untact">' +
+                '<img src="assets/images/page/icon_zoom.png" alt="">' +
+                '<span class="visit-card__untact-text">비대면 진행</span>' +
+              '</span>' +
+              '<p class="visit-card__tel">' + center.phone + '</p>' +
+            '</div>';
+        } else {
+          var addr = center.addr.map(function (line) {
+            return '<span class="visit-card__addr-text">' + line + '</span>';
+          }).join('');
+          body = '' +
+            '<div class="visit-card__body">' +
+              '<span class="visit-card__addr">' + addr +
+                '<span class="visit-card__tel">' + center.phone + '</span>' +
+              '</span>' +
+              '<span class="visit-card__icons">' + facilityIcons(center.facilities) + '</span>' +
+            '</div>';
+        }
+
+        return '' +
+          '<li>' +
+            '<button type="button" class="visit-card" data-center-idx="' + idx + '" data-branch-open aria-haspopup="dialog" aria-controls="branchModal">' +
+              '<span class="visit-card__name">' + center.region + '</span>' +
+              body +
+            '</button>' +
+          '</li>';
+      }
+
+      function renderList() {
+        $('#visitList').html(CENTERS.map(buildCard).join(''));
+      }
+
+      // 모달 체험관 구성(아이콘 + 라벨) 마크업
+      function facilityList(keys) {
+        return (keys || []).map(function (k) {
+          var f = FACILITY[k];
+          if (!f) return '';
+          return '<span class="branch-facility"><img src="assets/images/page/' + f.img + '" alt=""><span>' + f.label + '</span></span>';
+        }).join('');
+      }
+
+      // 클릭한 센터 정보로 공통 팝업 내용을 채운다
+      function fillModal(center) {
+        $('#branchRegion').text(center.region);
+        $('#branchPhone').text(center.phone);
+        $('#branchAddr').text(center.untact ? '비대면 진행' : center.addr.join(' '));
+        $('#branchFacilities').html(facilityList(center.facilities));
+      }
+
+      // 지점안내 팝업(공통) — 열기/닫기
+      function bindBranchModal() {
+        var $modal = $('#branchModal');
+        if (!$modal.length) return;
+
+        function openModal(e) {
+          if (e) e.preventDefault();
+          var idx = $(e.currentTarget).data('center-idx');
+          if (typeof idx !== 'undefined' && CENTERS[idx]) fillModal(CENTERS[idx]);
+          $modal.prop('hidden', false).addClass('is-open');
+          $('body').addClass('is-modal-open');
+        }
+        function closeModal() {
+          $modal.prop('hidden', true).removeClass('is-open');
+          $('body').removeClass('is-modal-open');
+        }
+
+        $(document).on('click', '[data-branch-open]', openModal);
+        $modal.on('click', '[data-branch-close]', closeModal);
+        $(document).on('keydown', function (e) {
+          if (e.key === 'Escape' && $modal.hasClass('is-open')) closeModal();
+        });
+      }
+
+      $(function () {
+        renderList();
+        bindBranchModal();
+      });
+    })(jQuery);
+  </script>
+</body>
+</html>
