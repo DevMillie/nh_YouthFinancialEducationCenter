@@ -1991,11 +1991,12 @@ body.is-modal-open {
     left: 0;
     top: 0;
     right: 0;
-    bottom: 0;
+    bottom: auto;
     transform: none;
     width: auto;
     max-width: none;
-    height: auto;
+    height: 100vh;            /* 폴백 */
+    height: 100dvh;           /* 동적 뷰포트(브라우저 UI 제외) */
     max-height: none;
     border-radius: 0;
   }
@@ -2005,7 +2006,7 @@ body.is-modal-open {
   }
 
   .branch-modal__scroll {
-    padding: 25px 0 30px;
+    padding: 25px 0 calc(30px + env(safe-area-inset-bottom, 0px));
   }
 
   .branch-modal__title {
