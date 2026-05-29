@@ -709,9 +709,9 @@ body.is-gnb-open .header__menu-icon--close {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 30px;
   padding: 30px 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .branch-modal__title {
@@ -739,7 +739,7 @@ body.is-gnb-open .header__menu-icon--close {
   align-items: center;
   justify-content: center;
   height: 300px;
-  margin: 0 30px;
+  margin: 0 30px 30px;
   background: #eee;
   overflow: hidden;
 }
@@ -753,10 +753,10 @@ body.is-gnb-open .header__menu-icon--close {
 .branch-modal__body {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .branch-modal__region {
+  margin-bottom: 20px;
   padding: 0 30px;
   font-size: 20px;
   font-weight: 800;
@@ -783,12 +783,12 @@ body.is-gnb-open .header__menu-icon--close {
 .branch-info__item {
   display: flex;
   flex-direction: column;
-  gap: 5px;
   font-size: 14px;
   font-weight: 700;
 }
 
 .branch-info__label {
+  margin-bottom: 5px;
   color: #888;
   line-height: 20px;
 }
@@ -809,10 +809,10 @@ body.is-gnb-open .header__menu-icon--close {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
 }
 
 .branch-facility img {
+  margin-bottom: 5px;
   width: 30px;
   height: 30px;
 }
@@ -1990,10 +1990,12 @@ body.is-modal-open {
   .branch-modal__panel {
     left: 0;
     top: 0;
+    right: 0;
+    bottom: 0;
     transform: none;
-    width: 100vw;
+    width: auto;
     max-width: none;
-    height: 100vh;
+    height: auto;
     max-height: none;
     border-radius: 0;
   }
@@ -2003,7 +2005,6 @@ body.is-modal-open {
   }
 
   .branch-modal__scroll {
-    gap: 25px;
     padding: 25px 0 30px;
   }
 
@@ -2017,7 +2018,7 @@ body.is-modal-open {
   }
 
   .branch-modal__map {
-    margin: 0 16px;
+    margin: 0 16px 25px;
   }
 
   .branch-modal__body {
