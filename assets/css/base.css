@@ -237,3 +237,22 @@ select {
   white-space: nowrap;
   border: 0;
 }
+
+/* 공통 스크롤바 — 스크롤 영역에 .scrollbar 클래스 추가 */
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #cacaca rgba(202, 202, 202, 0.2);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cacaca;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  
+}

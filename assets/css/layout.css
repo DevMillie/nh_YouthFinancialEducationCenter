@@ -330,9 +330,13 @@ body.is-gnb-open .header__menu-icon--close {
   max-width: none;
 }
 
+.sub-page-head {
+  margin-bottom: 58px;
+}
+
 .sub-page-head__title {
   font-size: 28px;
-  font-weight: 700;  
+  font-weight: 700;
   color: #373737;
   line-height: normal;
 }
@@ -346,7 +350,6 @@ body.is-gnb-open .header__menu-icon--close {
 }
 
 .region-select__grid {
-  margin-top: 48px;
   display: grid;
   grid-template-columns: repeat(5, minmax(158px, 1fr));
   gap: 15px 16px;
@@ -835,7 +838,6 @@ body.is-modal-open {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
   margin: 0;
-  margin-top: 58px;
   padding: 0;
   list-style: none;
 }
@@ -932,6 +934,70 @@ body.is-modal-open {
 }
 
 /* --------------------------------------------------------------------------
+   약관 동의 (US030302)
+   -------------------------------------------------------------------------- */
+.agree__item {
+  margin-bottom: 27px;
+}
+
+.agree__label {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #373737;
+}
+
+.agree__box {
+  height: 400px;
+  padding: 30px;
+  padding-right: 10px;
+  border: 1px solid #cacaca;
+  border-radius: 20px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 20px;
+  color: #373737;
+}
+
+.policy_wrap {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.agree__box-title {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.agree__box-sub {
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.agree__box p {
+  margin: 0;
+}
+
+.agree__box-indent {
+  padding-left: 24px;
+}
+
+.agree__radios {
+  display: flex;
+  gap: 63px;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: end;
+}
+
+.agree__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* --------------------------------------------------------------------------
    Button
    -------------------------------------------------------------------------- */
 .btn {
@@ -993,6 +1059,25 @@ body.is-modal-open {
   border-color: #777;
 }
 
+.btn--submit {
+  min-width: 99px;
+  padding: 15px 40px;
+  background: #ff8296;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn--submit:hover,
+.btn--submit:focus-visible {
+  background: #ee6d82;
+  outline: none;
+}
+
 .btn-order {
   display: flex;
   align-items: center;
@@ -1018,6 +1103,48 @@ body.is-modal-open {
 /* --------------------------------------------------------------------------
    Form
    -------------------------------------------------------------------------- */
+/* 약관 동의 등에서 공통으로 쓰는 체크 원형 라디오 */
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.radio input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.radio__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: url("../images/page/icon_agree_off.svg") no-repeat center / contain;
+}
+
+.radio input:checked ~ .radio__icon {
+  background-image: url("../images/page/icon_agree_on.svg");
+}
+
+.radio input:focus-visible ~ .radio__icon {
+  outline: 2px solid #ee6d82;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+.radio__text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #373737;
+}
+
 .form-check {
   display: inline-flex;
   align-items: center;
@@ -1844,6 +1971,10 @@ body.is-modal-open {
     height: 14px;
   }
 
+  .sub-page-head{
+    margin-bottom: 38px;
+  }
+
   .user-apply-page .body {
     padding: 38px 16px 48px;
     display: block;
@@ -1859,7 +1990,6 @@ body.is-modal-open {
   }
 
   .region-select__grid {
-    margin-top: 32px;
     max-width: none;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 15px 10px;
@@ -2087,6 +2217,31 @@ body.is-modal-open {
   .visit-card__icons img {
     width: 20px;
     height: 20px;
+  }
+
+  /* 약관 동의 — 모바일 */
+  .agree__label {
+    font-size: 14px;
+  }
+
+  .agree__box {
+    padding: 20px;
+    padding-right: 10px;
+    font-size: 12px;
+  }
+
+  .agree__box-title {
+    font-size: 14px;
+  }
+
+  .agree__radios {
+    gap: 20px;
+  }
+
+  .btn--submit {
+    max-width: 130px;
+    padding: 12px 20px;
+    font-size: 16px;
   }
 }
 
